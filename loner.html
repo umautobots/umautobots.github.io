@@ -92,7 +92,7 @@
 <body style="background-color:#ffffff;">
     <!-- Github Logo on the top-right corner -->
     <div class="github_logo">
-        <a href="https://github.com/roahmlab/sel_map" class="github-corner" aria-label="View source on Github">
+        <a href="" class="github-corner" aria-label="View source on Github">
             <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#333333; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
                 <defs>
                     <mask id="octomask">
@@ -185,12 +185,12 @@
         <!-- Links -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <a href="https://arxiv.org/abs/2205.12925">
+                <a href=""> <!-- https://arxiv.org/abs/2205.12925 -->
                     <img src="./web_elements/paper.png" height="25pt"/>
                 </a>
             </div>
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <a href="https://github.com/roahmlab/sel_map">
+                <a href="">
                     <img src="./web_elements/github.png" height="25pt" style="opacity:.85"/>
                 </a>
             </div>
@@ -201,7 +201,7 @@
                 <p>Paper</p>
             </div>
             <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
-                <p>&lt;/Code&gt;</p>
+                <p>&lt;Code&gt;</p> <p>(Availble after acceptance)</p>
             </div>
         </div>
     </div>
@@ -219,13 +219,14 @@
         <h2 class="section_title">Abstract</h2>
         <p class="body">
             <b>TL;DR: We propose LONER, the first real-time LiDAR SLAM algorithm that uses a neural-implicit scene representation. </b>
-            
-            LONER uses LiDAR data to train a neural-implicit map in real-time, while simultaneously estimating the trajectory of the sensor.
-A key enabler of real-time training is a novel information-theoretic loss function which accounts for different regions of the map having varying degrees of uncertainty during online operation.
-The method is evaluated extensively on open-source datasets. 
-Results show that the proposed loss function converges faster and leads to more accurate geometry reconstruction than other loss functions used in depth-supervised neural-implicit frameworks. 
-We further show that the proposed trajectory estimation method is competitive with state-of-the-art LiDAR-based SLAM methods. 
-Finally, LONER produces maps with up to 10% greater accuracy than the state-of-the-art real-time implicit mapping method. Hence, we show LONER to be the first LiDAR SLAM method which offers real-time trajectory estimation and a dense neural-implicit scene representation.
+                Existing implicit mapping methods for LiDAR show promising results in large-scale reconstruction, but either require groundtruth poses or run slower than real-time.
+In contrast, LONER uses LiDAR data to train an MLP to estimate a dense map in real-time, while simultaneously estimating the trajectory of the sensor.\
+To achieve real-time performance, this paper proposes a novel information-theoretic loss function that accounts for the fact that different regions of the map may be learned to varying degrees throughout online training.
+The proposed method is evaluated qualitatively and quantitatively on two open-source datasets. 
+This evaluation illustrates that the proposed loss function converges faster and leads to more accurate geometry reconstruction than other loss functions used in depth-supervised neural implicit frameworks. 
+Finally, this paper shows that LONER estimates trajectories competitively with state-of-the-art LiDAR SLAM methods, while also producing dense maps competitive with existing real-time implicit mapping methods that use groundtruth poses.
+
+        
         </p>
         <!--
         <div style="text-align: center;">
@@ -254,6 +255,9 @@ Finally, LONER produces maps with up to 10% greater accuracy than the state-of-t
         <video width="100%" autoplay muted loop controls>
             <source src="media/canteen_raw_gt_img_depth.mp4">
         </video>
+        <video width="100%" autoplay muted loop controls>
+            <source src="media/garden_raw_gt_img_depth.mp4">
+        </video>
        
         <h3 class="section_title">Input View Rendering</h2>
         <video width="100%" id="dollyzoom" autoplay muted loop controls>
@@ -267,11 +271,12 @@ Finally, LONER produces maps with up to 10% greater accuracy than the state-of-t
     </div>
 
     <!-- Citation -->
+    <!--
     <div class="container" style="background-color:#f2f2f2">
         <h2 class="section_title">Citation</h2>
         <ul class="body" style="padding-left:50pt; font-size: 10pt; line-height: 15pt;">
-            <li>This work is supported by the Ford Motor Company via the Ford-UM Alliance under award N022977, by the Office of Naval Research under award number N00014-18-1-2575, and in part by the National Science Foundation under Grant 1751093.</li>
-            <li>sel_map was developed in <a href="http://www.roahmlab.com">Robotics and Optimization for Analysis of Human Motion (ROAHM) Lab</a> at University of Michigan - Ann Arbor.</li>
+            <li>This work is supported by the Ford Motor Company via the Ford-UM Alliance under award N028603.</li>
+            <li>LONER was developed in <a href="https://fcav.engin.umich.edu/">Ford Center for Autonomous Vehicles (FCAV)</a> at University of Michigan - Ann Arbor.</li>
             <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
                 <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">  @article{9792203, <br>
                     author={Ewen, Parker and Li, Adam and Chen, Yuxin and Hong, Steven and Vasudevan, Ram}, <br>
@@ -285,5 +290,6 @@ Finally, LONER produces maps with up to 10% greater accuracy than the state-of-t
             </div></li>
         </ul>
     </div>
+    -->
 </body>
 </html>
