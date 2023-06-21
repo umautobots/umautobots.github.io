@@ -206,11 +206,17 @@
         </div>
     </div>
 
-    <!-- Overview Video -->
+    <!-- Results -->
     <div class="container" style="padding-top: 0pt;">
-        <h2 class="section_title">Real-time Demo Video</h2>
-        <video width="100%" autoplay muted loop>
-            <source src="media/lite_mode_demo.mp4">
+        <h2 class="section_title">Rendered depth in reconstructed map</h2>
+        <video width="100%" autoplay muted loop controls>
+            <source src="media/canteen_raw_gt_img_depth.mp4">
+        </video>
+        <video width="100%" autoplay muted loop controls>
+            <source src="media/garden_raw_gt_img_depth.mp4">
+        </video>
+        <video width="100%" autoplay muted loop controls>
+            <source src="media/quad_raw_gt_img_depth.mp4">
         </video>
     </div>
 
@@ -246,19 +252,15 @@ Finally, this paper shows that LONER estimates trajectories competitively with s
     </div>
     -->
 
-    <!-- Results -->
+    <!-- Real-time Video -->
     <div class="container" style="padding-top: 0pt;">
-        <h2 class="section_title">Results</h2>
-        <video width="100%" autoplay muted loop controls>
-            <source src="media/canteen_raw_gt_img_depth.mp4">
+        <h2 class="section_title">Real-time Meshing Video</h2>
+        <video width="100%" autoplay muted loop>
+            <source src="media/lite_mode_demo.mp4">
         </video>
-        <video width="100%" autoplay muted loop controls>
-            <source src="media/garden_raw_gt_img_depth.mp4">
-        </video>
-        <video width="100%" autoplay muted loop controls>
-            <source src="media/quad_raw_gt_img_depth.mp4">
-        </video>
-       
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
         <h2 class="section_title">Input View Rendering</h2>
         <video width="100%" id="dollyzoom" autoplay muted loop controls>
             <source src="media/gt_traj.mp4">
