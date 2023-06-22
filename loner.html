@@ -183,19 +183,21 @@
             <p>All authors affiliated with the Robotics Department of the University of Michigan, Ann Arbor.</p>
         </div>
         <!-- Links -->
+        <!-- -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <a href=""> <!-- https://arxiv.org/abs/2205.12925 -->
-                    <img src="./web_elements/paper.png" height="25pt"/>
-                </a>
+                <img src="./web_elements/paper.png" height="25pt"/>
             </div>
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <a href="">
+                <img src="./web_elements/github.png" height="25pt" style="opacity:.85"/>
+                <!--<a href="">
                     <img src="./web_elements/github.png" height="25pt" style="opacity:.85"/>
-                </a>
+                </a>-->
             </div>
         </div>
+        
         <!-- Link name -->
+        <!--
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:300px; line-height: 10pt;">
             <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
                 <p>Paper</p>
@@ -203,6 +205,10 @@
             <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
                 <p>&lt;Code&gt;</p> <p>(Availble after acceptance)</p>
             </div>
+        </div>
+        -->
+        <div class="affiliation">
+            <p>Paper and code will be available after paper acceptance.</p>
         </div>
     </div>
 
@@ -226,7 +232,7 @@
         <p class="body">
             <b>TL;DR: We propose LONER, the first real-time LiDAR SLAM algorithm that uses a neural-implicit scene representation. </b>
                 Existing implicit mapping methods for LiDAR show promising results in large-scale reconstruction, but either require groundtruth poses or run slower than real-time.
-In contrast, LONER uses LiDAR data to train an MLP to estimate a dense map in real-time, while simultaneously estimating the trajectory of the sensor.\
+In contrast, LONER uses LiDAR data to train an MLP to estimate a dense map in real-time, while simultaneously estimating the trajectory of the sensor.
 To achieve real-time performance, this paper proposes a novel information-theoretic loss function that accounts for the fact that different regions of the map may be learned to varying degrees throughout online training.
 The proposed method is evaluated qualitatively and quantitatively on two open-source datasets. 
 This evaluation illustrates that the proposed loss function converges faster and leads to more accurate geometry reconstruction than other loss functions used in depth-supervised neural implicit frameworks. 
