@@ -12,7 +12,7 @@
             margin-top:30pt;
             margin-bottom:0pt;
             color:#303030;
-            font-size:40pt;
+            font-size:45pt;
             font-weight:900;
             letter-spacing:0pt;
         }
@@ -23,10 +23,10 @@
             margin-bottom:0;
             margin-left: auto;
             margin-right: auto;
-            max-width:700px;
+            max-width:1100px;
             color:#303030;
-            font-size:20pt;
-            font-weight:400;
+            font-size:30pt;
+            font-weight:500;
             letter-spacing:0pt;
         }
         .section_title{
@@ -35,9 +35,20 @@
             padding-left:25pt;
             padding-right:25pt;
             padding-top:25pt;
-            color:#777777;
-            font-size:25pt;
-            font-weight:300;
+            color:#181818;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .subsection_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#504d4d;
+            font-size:20;
+            font-weight:500;
             letter-spacing:0pt;
         }
         .body{
@@ -77,7 +88,15 @@
 	    font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:#000000;
-            font-size:10pt;
+            font-size:13pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .contribution{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:13.5pt;
             font-weight:100;
             letter-spacing:0pt;
         }
@@ -177,56 +196,66 @@
                 <p>kskin@umich.edu</p>
             </div>
         </div> 
+
+        <div class="contribution">
+            <p>* Equal Contribution</p>
+        </div>
+
         <!-- Authors affiliation -->
         <div class="affiliation">
-            <p>* These two authors contributed equally to this work.</p>
             <p>All authors affiliated with the Robotics Department of the University of Michigan, Ann Arbor.</p>
         </div>
         <!-- Links -->
-        <!-- -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <img src="./web_elements/paper.png" height="25pt"/>
+                <a href="https://arxiv.org/abs/2309.04937">
+                    <img src="./web_elements/paper.png" height="35pt"/>
+                </a>
             </div>
             <div class="col" style="width: 50%; line-height: 50pt;">
-                <img src="./web_elements/github.png" height="25pt" style="opacity:.85"/>
-                <!--<a href="">
-                    <img src="./web_elements/github.png" height="25pt" style="opacity:.85"/>
-                </a>-->
+                <a href="https://github.com/umautobots/LONER">
+                    <img src="./web_elements/github.png" height="35pt" style="opacity:.85"/>
+                </a>
             </div>
         </div>
         
         <!-- Link name -->
-        <!--
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:300px; line-height: 10pt;">
             <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
                 <p>Paper</p>
             </div>
             <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
-                <p>&lt;Code&gt;</p> <p>(Availble after acceptance)</p>
+                <p>Github</p>
             </div>
         </div>
-        -->
-        <div class="affiliation">
-            <p>Paper and code will be available after paper acceptance.</p>
-        </div>
+        
+
+    </div>
+    <!-- Overview Video -->
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Overview Video</h2>
+        <video width="100%" autoplay controls>
+            <source src="media/loner_ral_compressed.mp4">
+        </video>
     </div>
 
     <!-- Results -->
     <div class="container" style="padding-top: 0pt;">
         <h2 class="section_title">Rendered depth in reconstructed map</h2>
-        <video width="100%" autoplay muted loop controls>
+        <center>
+        <video width="90%" autoplay muted loop controls>
             <source src="media/canteen_raw_gt_img_depth.mp4">
         </video>
-        <video width="100%" autoplay muted loop controls>
+        <video width="90%" autoplay muted loop controls>
             <source src="media/garden_raw_gt_img_depth.mp4">
         </video>
-        <video width="100%" autoplay muted loop controls>
+        <video width="90%" autoplay muted loop controls>
             <source src="media/quad_raw_gt_img_depth.mp4">
         </video>
+        </center>
     </div>
 
-    <!-- Introduction -->
+    <!-- Abstract -->
     <div class="container" style="background-color:#f2f2f2">
         <h2 class="section_title">Abstract</h2>
         <p class="body">
@@ -245,42 +274,56 @@ Finally, this paper shows that LONER estimates trajectories competitively with s
         -->
     </div>
 
-    <!-- Method 
+
+    <!-- Method -->
     <div class="container">
-        <h2 class="section_title">Method</h2>
-        <p class="body">Here is a flow diagram illustrating out method.
-            RGB-D images are semantically segmented using an off-the-shelf semantic segmentation network. 
-            Using the camera’s estimated pose and associated depth image, the pixel-wise probabilistic terrain class estimates are projected into the map. 
-            The height map is updated using a 1D Kalman filter and the terrain class estimates, alongside our novel material property dataset, are used to recursively estimate terrain properties for each region of the map.</p>
+        <h2 class="section_title">System Overview</h2>
+        <p class="body"> The system comprises
+            parallel threads for tracking and mapping. The tracking thread
+            processes incoming scans and estimates odometry using ICP.
+            LONER is designed for use without an IMU, so ICP uses the
+            identity transformation as an initial guess. In parallel and at
+            a lower rate, the mapping thread uses the current scan and
+            selected prior scans as KeyFrames, which are used to update
+            the training of the neural scene representation.
+        </p>
         <div style="text-align: center;">
-            <img src="./web_elements/flow_diagram.png", width="900pt">
+            <img src="images/system_overview.png", width="900pt">
         </div>
     </div>
-    -->
+    <!-- Novel JS Loss -->
+    <div class="container">
+        <h2 class="section_title">Novel JS Loss</h2>
+        <p class="body"> We introduce a novel loss function that leads to faster
+            convergence and more accurate reconstruction than existing depth-supervised loss functions.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/depth_image_for_loss_comparison.png", width="900pt">
+        </div>
+    </div>
+    
 
     <!-- Real-time Video -->
     <div class="container" style="padding-top: 0pt;">
-        <h2 class="section_title">Incremental Meshing Video</h2>
+        <h2 class="section_title">More Demo Videos</h2>
         <center>
-        <video width="50%" autoplay muted loop>
+        <h2 class="subsection_title">Incremental Meshing Video</h2>
+        <video width="60%" autoplay muted loop>
             <source src="media/bev_demo.mp4">
         </video>
-        </center>
-    </div>
 
-    <div class="container" style="padding-top: 0pt;">
-        <h2 class="section_title">Input View Rendering</h2>
-        <video width="100%" id="dollyzoom" autoplay muted loop controls>
+        <h2 class="subsection_title">Input View Rendering</h2>
+        <video width="80%" id="dollyzoom" autoplay muted loop controls>
             <source src="media/gt_traj.mp4">
         </video>
 
-        <h2 class="section_title">Novel View Rendering</h2>
-        <video width="100%" id="dollyzoom" autoplay muted loop controls>
+        <h2 class="subsection_title">Novel View Rendering</h2>
+        <video width="80%" id="dollyzoom" autoplay muted loop controls>
             <source src="media/novel_traj.mp4">
         </video>
 
-        <h2 class="section_title">Rendering in DARPA SubT Challenge Data Sequence</h2>
-        <center>
+        <h2 class="subsection_title">Rendering in DARPA SubT Challenge Data Sequence</h2>
+
         <video width="50%" id="dollyzoom" autoplay muted loop controls>
             <source src="media/anymal_v2.mp4">
         </video>
