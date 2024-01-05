@@ -3,7 +3,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>NSAVP: Novel Sensors for Autonomous Vehicle Perception</title>
+	<title>Dataset and Benchmark: Novel Sensors for Autonomous Vehicle Perception</title>
 	<meta name="description" content="Novel Sensors for Autonomous Vehicle Perception.">
     <style>
         .title{
@@ -11,10 +11,13 @@
             text-align:center;
             margin-top:30pt;
             margin-bottom:0pt;
+            margin-left: auto;
+            margin-right: auto;
             color:#303030;
-            font-size:45pt;
-            font-weight:900;
+            font-size:35pt;
+            font-weight:800;
             letter-spacing:0pt;
+            max-width:1200px;
         }
         .subtitle{
 	    font-family: Arial, Helvetica, sans-serif;
@@ -34,9 +37,8 @@
             text-align:left;
             padding-left:25pt;
             padding-right:25pt;
-            padding-top:25pt;
             color:#181818;
-            font-size:30pt;
+            font-size:25pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -67,17 +69,17 @@
 	    font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             float: left;
-            width: 20%;
+            width: 16%;
             color:#000000;
             font-size:15pt;
             font-weight:100;
             letter-spacing:0pt;
             height: 25pt;
-        }   
+        }
         .row{
             margin-left: auto;
             margin-right: auto;
-            max-width:940px;
+            max-width:1200px;
         }
         .row:after {
             content: "";
@@ -96,7 +98,7 @@
 	    font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:#000000;
-            font-size:13.5pt;
+            font-size:10pt;
             font-weight:100;
             letter-spacing:0pt;
         }
@@ -112,97 +114,118 @@
             margin-left:auto;
             margin-right:auto;
             margin-top: 5pt;
-            max-width:940px
+            max-width:1200px
         }
     </style>
 </head>
 
 <body style="background-color:#ffffff;">
-    <!-- Github Logo on the top-right corner -->
-    <div class="github_logo">
-        <a href="" class="github-corner" aria-label="View source on Github">
-            <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#333333; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-                <defs>
-                    <mask id="octomask">
-                        <path fill="white" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-                        <path fill="black" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-                        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="black" class="octo-body"></path>
-                    </mask>
-                </defs>
-                <rect class="filler" width="100%" height="100%" mask="url(#octomask)"></rect>
-            </svg>
-        </a>
-        <style>
-        .github-corner:hover .octo-arm {
-            animation:octocat-wave 560ms ease-in-out
-        }
-
-        @keyframes octocat-wave {
-            0%, 100% {
-                transform:rotate(0)
-            }
-
-            20%, 60% {
-                transform:rotate(-25deg)
-            }
-
-            40%, 80% {
-                transform:rotate(10deg)
-            }
-        }
-
-        @media (max-width: 500px) {
-            .github-corner:hover .octo-arm {
-                animation:none
-            }
-
-            .github-corner .octo-arm {
-                animation: octocat-wave 560ms ease-in-out
-            }
-        }
-        </style>
+    <div class="section">
+        <h1 class="title">Dataset and Benchmark: Novel Sensors for Autonomous Vehicle Perception</h1>
+        <!-- Author name-->
+        <div class="row">
+            <div class="col" style="font-weight: 200;">
+                <p>Spencer Carmichael<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Austin Buchan<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Mani Ramanagopal<sup>1*</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Radhika Ravi<sup>1*</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Ram Vasudevan<sup>1,2</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Katherine A. Skinner<sup>1</sup></p>
+            </div>
+        </div>
+        <!-- Mailbox -->
+        <div class="row">
+            <div class="col", style="font-size:10pt;">
+                <p>specarmi@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt;">
+                <p>adbuchan@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt;">
+                <p>srmani@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt;">
+                <p>rradhika@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt;">
+                <p>ramv@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt;">
+                <p>kskin@umich.edu</p>
+            </div>
+        </div>
+        <!-- Affiliation -->
+        <div class="contribution">
+            <p><sup>1</sup>Robotics Department, University of Michigan, Ann Arbor</p>
+        </div>
+        <div class="contribution">
+            <p><sup>2</sup>Department of Mechanical Engineering, University of Michigan, Ann Arbor</p>
+        </div>
+        <div class="contribution">
+            <p><sup>*</sup>Mani Ramanagopal and Radhika Ravi contributed to this work while employed at University of Michigan.</p>
+        </div>
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://github.com/umautobots/nsavp_tools">
+                    <img src="./web_elements/github.png" height="75pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://deepblue.lib.umich.edu/data/collections/v118rf157">
+                    <img src="./web_elements/database.png" height="75pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://sites.google.com/umich.edu/novelsensors2023">
+                    <img src="./web_elements/workshop.png" height="75pt"/>
+                </a>
+            </div>
+        </div>
+        <!-- Link name -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Documentation & Software Tools</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Download</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>IROS 2023 Workshop</p>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h1 class="title">NSAVP: Novel Sensors for Autonomous Vehicle Perception</h1>
+    <!-- Teaser Video -->
+    <div class="container" style="padding-top: 25pt;">
         <center>
-        <video width="80%" id="nsavp_teaser" autoplay muted loop controls>
+        <video width="100%" id="nsavp_teaser" autoplay muted loop controls>
             <source src="media/nsavp_teaser.mp4">
         </video>
         </center>
     </div>
 
-
-    <div class="section">
-        <h2 class="title">Authors</h1>
-	<p>Placeholder author list</p>
+    <!-- Overview -->
+    <div class="container">
+        <h2 class="section_title">Abstract</h2>
+        <p class="body">Conventional cameras employed in autonomous vehicle (AV) systems support many perception tasks, but are challenged by low-light or high dynamic range scenes, adverse weather, and fast motion. Novel sensors, such as event and thermal cameras, offer capabilities with the potential to address these scenarios, but they remain to be fully exploited. This paper introduces the Novel Sensors for Autonomous Vehicle Perception (NSAVP) dataset to facilitate future research on this topic. The dataset was captured with a platform including stereo event, thermal, monochrome, and RGB cameras as well as a high precision navigation system providing ground truth poses. The data was collected by repeatedly driving two ~8 km routes and includes varied lighting conditions and opposing viewpoint perspectives. We provide benchmarking experiments on the task of place recognition to demonstrate challenges and opportunities for novel sensors to enhance critical AV perception tasks. To our knowledge, the NSAVP dataset is the first to include stereo thermal cameras together with stereo event and monochrome cameras.
+        </p>
     </div>
 
     <!-- Overview -->
     <div class="container">
-        <h2 class="section_title">Overview</h2>
-        <p class="body">Current systems for autonomous vehicle (AV) perception rely on widely used 
-            sensors such as cameras and LiDAR systems. However, AV perception systems based on 
-            conventional sensors suffer in various lighting and adverse weather conditions. For 
-            example, conventional visual frame-based cameras are widely used due to their low-cost
-            and high spatial resolution. Yet, AV perception systems based on conventional cameras 
-            are challenged by low-light conditions, fog, rain, and snow, and suffer from issues 
-            including motion blur, limited frame rates, and low dynamic range. Novel sensors, such
-            as event and thermal cameras, offer alternatives that address these limitations. 
-            Event cameras feature high temporal resolution, effectively no motion blur, high 
-            dynamic range, low power requirements, and low latency. These qualities make event 
-            cameras promising under adverse lighting, fast motion, and resource constraints. Thermal
-            cameras sensitive to the Long Wave Infrared spectrum can operate in the absence of 
-            visible light and are robust to changes in illumination and visual obscurants such as 
-            fog, dust, and smoke. Alongside these advantages are challenges: thermal cameras are 
-            lower contrast and experience greater motion blur, while event cameras represent a new 
-            paradigm that is not directly compatible with existing algorithms. Advancing AV 
-            capabilities to leverage novel sensors will require further research development across
-            academia and industry. This workshop seeks to engage the research community in 
-            discussion of exciting new research topics in novel sensors for AV perception, and will
-            feature the release of a unique dataset for AV perception with novel sensors, and a 
-            student poster session. 
-        </p>
+        <h2 class="section_title">Citation</h2>
+        <p class="body">This section will be updated soon.</p>
     </div>
 </body>
 </html>
