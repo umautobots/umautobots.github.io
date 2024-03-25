@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<!-- THE DOCTYPE tells the browser what type of webpage to render, the doctype used in this website is HTML5 which is the most recent HTML. -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>SAD-GS: Shape-aligned Depth-supervised Gaussian Splatting</title>
+	<meta name="description" content="Shape-aligned Depth-supervised Gaussian Splatting.">
+
+    <!-- Import for video comparison -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+
+    <style>
+        .title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:30pt;
+            margin-bottom:0pt;
+            color:#303030;
+            font-size:45pt;
+            font-weight:900;
+            letter-spacing:0pt;
+        }
+        .subtitle{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:8pt;
+            margin-bottom:0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width:1100px;
+            color:#303030;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .section_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#181818;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .subsection_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#504d4d;
+            font-size:20;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .body{
+	    font-family: Arial, Helvetica, sans-serif;
+            color:#000000;
+            padding-right:25pt;
+            padding-left:25pt;
+            padding-bottom:25pt;
+            text-align:justify;
+            font-size:12pt;
+            font-weight:300;
+            letter-spacing:0pt;
+            line-height: 20pt;
+        }
+        .col{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            float: left;
+            width: 25%;
+            color:#000000;
+            font-size:17pt;
+            font-weight:200;
+            letter-spacing:0pt;
+            height: 30pt;
+        }   
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+            max-width:940px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .affiliation{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:13pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .contribution{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:13.5pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .publish{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:20pt;
+            font-weight:600;
+            letter-spacing:0pt;
+        }
+        .container{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 5pt;
+            max-width:940px
+        }
+    </style>
+
+    <style>
+        .video-container {
+            display: flex; /* Use flexbox for layout */
+        }
+        .video-container div{
+            width: 50%; /* Each video takes up 50% of the container width */
+            margin-right: 5px; /* Optional margin between videos */
+        }
+    </style>
+
+</head>
+<body style="background-color:#ffffff;">
+    <!-- Github Logo on the top-right corner -->
+    <div class="github_logo">
+        <a href="" class="github-corner" aria-label="View source on Github">
+            <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#333333; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+                <defs>
+                    <mask id="octomask">
+                        <path fill="white" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                        <path fill="black" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="black" class="octo-body"></path>
+                    </mask>
+                </defs>
+                <rect class="filler" width="100%" height="100%" mask="url(#octomask)"></rect>
+            </svg>
+        </a>
+        <style>
+        .github-corner:hover .octo-arm {
+            animation:octocat-wave 560ms ease-in-out
+        }
+
+        @keyframes octocat-wave {
+            0%, 100% {
+                transform:rotate(0)
+            }
+
+            20%, 60% {
+                transform:rotate(-25deg)
+            }
+
+            40%, 80% {
+                transform:rotate(10deg)
+            }
+        }
+
+        @media (max-width: 500px) {
+            .github-corner:hover .octo-arm {
+                animation:none
+            }
+
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+        </style>
+    </div>
+    <!-- Author list -->
+    <div class="section">
+        <h1 class="title">SAD-GS &#x1F61E;</h1> <!-- &#x1F622; &#128532; --> 
+        <h1 class="subtitle">Shape-aligned Depth-supervised Gaussian Splatting</h1>
+        <div class="publish">
+            <!-- <p>RA-L 2023</p> -->
+        </div>
+        <!-- Author name-->
+        <div class="row">
+            <div class="col" style="font-weight: 200;">
+                <p>Pou-Chun Kung</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Seth G. Isaacson</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Ram Vasudevan</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Katherine A. Skinner</p>
+            </div>
+        </div>    
+        <!-- Mailbox -->
+        <div class="row">
+            <div class="col", style="font-size:12pt;">
+                <p>pckung@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:12pt;">
+                <p>sethgi@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:12pt;">
+                <p>ramv@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:12pt;">
+                <p>kskin@umich.edu</p>
+            </div>
+        </div> 
+
+        <!-- Authors affiliation -->
+        <div class="affiliation">
+            <p>All authors are affiliated with the Robotics Department of the University of Michigan, Ann Arbor.</p>
+        </div>
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
+            <div class="col" style="width: 50%; line-height: 50pt;">
+                <a href=""> <!-- https://arxiv.org/abs/2309.04937 -->
+                    <img src="./web_elements/paper.png" height="35pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 50%; line-height: 50pt;">
+                <a href=""> <!-- https://github.com/umautobots/LONER -->
+                    <img src="./web_elements/github.png" height="35pt" style="opacity:.85"/>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Link name -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:300px; line-height: 10pt;">
+            <div class="col" style="width: 50%; font-size:15pt; font-weight: 500; line-height: 17pt;">
+                <p>Paper <br> (coming soon)</p>
+            </div>
+            <div class="col" style="width: 50%; font-size:15pt; font-weight: 500; line-height: 17pt;">
+                <p>GitHub <br> (coming soon)</p>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    <!-- Abstract -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Abstract</h2>
+        <p class="body">
+            <b>TL;DR: We propose SAD-GS, the first shape-aligned depth supervised method for Gaussian Splatting. </b>
+            This paper proposes SAD-GS, a depth-supervised Gaussian Splatting (GS) method that provides accurate 3D geometry reconstruction by introducing a shape-aligned depth supervision strategy. Depth information is widely used in various GS applications, such as dynamic scene reconstruction, real-time simultaneous localization and mapping, and few-shot reconstruction. However, existing depth-supervised methods for GS all focus on the center and neglect the shape of Gaussians during training. This oversight can result in inaccurate surface geometry in the reconstruction and can harm downstream tasks like novel view synthesis, mesh reconstruction, and robot path planning. 
+            To address this, this paper proposes a shape-aligned loss, which aims to produce a smooth and precise reconstruction by adding extra constraints to the Gaussian shape.
+            The proposed method is evaluated qualitatively and quantitatively on two publicly available datasets. 
+            The evaluation demonstrates that the proposed method provides state-of-the-art novel view rendering quality and mesh accuracy compared to existing depth-supervised GS methods.
+        </p>
+        <!--
+        <div style="text-align: center;">
+            <img src="./web_elements/main.png", width="700pt">
+        </div>
+        -->
+    </div>
+    
+
+    <!-- Results -->
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Rendered on Replica</h2>
+        <center>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="replica_render2_decompDiv">
+                <video class="video" id="replica_render2_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render2_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="replica_render3_decompDiv">
+                <video class="video" id="replica_render3_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render3.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render3_decompMerge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="replica_render4_decompDiv">
+                <video class="video" id="replica_render4_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render4.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render4_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="replica_render5_decompDiv">
+                <video class="video" id="replica_render5_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render5.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render5_decompMerge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="replica_render6_decompDiv">
+                <video class="video" id="replica_render6_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render6.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render6_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="replica_render1_decompDiv">
+                <video class="video" id="replica_render1_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_render1.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="replica_render1_decompMerge"></canvas>
+            </div>
+        </div>
+
+        </center>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Rendered on TUM</h2>
+        <center>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="tum_render2_decompDiv">
+                <video class="video" id="tum_render2_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="480" width="640" class="videoMerge" id="tum_render2_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="tum_render3_decompDiv">
+                <video class="video" id="tum_render3_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render3.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="tum_render3_decompMerge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="tum_render4_decompDiv">
+                <video class="video" id="tum_render4_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render4.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="tum_render4_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="tum_render5_decompDiv">
+                <video class="video" id="tum_render5_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render5.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="tum_render5_decompMerge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="tum_render6_decompDiv">
+                <video class="video" id="tum_render6_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render6.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="tum_render6_decompMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="tum_render1_decompDiv">
+                <video class="video" id="tum_render1_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_render1.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="tum_render1_decompMerge"></canvas>
+            </div>
+        </div>
+
+        </center>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Mesh on Replica</h2>
+        <center>
+            <div class="video-container">
+                <div class="video-compare-container" id="replica_mesh2_decompDiv">
+                    <video class="video" id="replica_mesh2_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="10" width="10" class="videoMerge" id="replica_mesh2_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="replica_mesh3_decompDiv">
+                    <video class="video" id="replica_mesh3_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh3.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="replica_mesh3_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="replica_mesh4_decompDiv">
+                    <video class="video" id="replica_mesh4_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh4.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="replica_mesh4_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="replica_mesh5_decompDiv">
+                    <video class="video" id="replica_mesh5_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh5.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="replica_mesh5_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="replica_mesh6_decompDiv">
+                    <video class="video" id="replica_mesh6_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh6.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="replica_mesh6_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="replica_mesh1_decompDiv">
+                    <video class="video" id="replica_mesh1_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/replica_mesh1.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="replica_mesh1_decompMerge"></canvas>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Mesh on TUM</h2>
+        <center>
+            <div class="video-container">
+                <div class="video-compare-container" id="tum_mesh2_decompDiv">
+                    <video class="video" id="tum_mesh2_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="10" width="10" class="videoMerge" id="tum_mesh2_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="tum_mesh3_decompDiv">
+                    <video class="video" id="tum_mesh3_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh3.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="tum_mesh3_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="tum_mesh4_decompDiv">
+                    <video class="video" id="tum_mesh4_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh4.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="tum_mesh4_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="tum_mesh5_decompDiv">
+                    <video class="video" id="tum_mesh5_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh5.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="tum_mesh5_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="tum_mesh6_decompDiv">
+                    <video class="video" id="tum_mesh6_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh6.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="tum_mesh6_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="tum_mesh1_decompDiv">
+                    <video class="video" id="tum_mesh1_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/tum_mesh1.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="tum_mesh1_decompMerge"></canvas>
+                </div>
+            </div>
+        </center>
+    </div>
+
+
+</body>
+</html>
