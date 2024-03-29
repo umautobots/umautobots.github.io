@@ -8,9 +8,12 @@
 
     <!-- Import for video comparison -->
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/nv.css">
+
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <script src="js/video_comparison.js"></script>
-    <script src="js/app.js"></script>
+    <!-- <script src="js/app.js"></script> -->
+    <script src="js/event_handler.js"></script>
 
     <style>
         .title{
@@ -129,6 +132,14 @@
         }
         .video-container div{
             width: 50%; /* Each video takes up 50% of the container width */
+            margin-right: 5px; /* Optional margin between videos */
+        }
+
+        .video-container3 {
+            display: flex; /* Use flexbox for layout */
+        }
+        .video-container3 div{
+            width: 31%; /* Each video takes up 50% of the container width */
             margin-right: 5px; /* Optional margin between videos */
         }
     </style>
@@ -422,6 +433,59 @@
                     <canvas height="340" width="600" class="videoMerge" id="tum_mesh1_decompMerge"></canvas>
                 </div>
             </div> -->
+        </center>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Human Face Reconstruction with a single image captured by iPhone</h2>
+        <center>
+            <div class="video-container3">
+                <div class="video-compare-container" id="iphone_myface_decompDiv">
+                    <video class="video" id="iphone_myface_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="iphone_seth_decompDiv">
+                    <video class="video" id="iphone_seth_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_sean_2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_seth_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="iphone_sean_decompDiv">
+                    <video class="video" id="iphone_sean_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_seth_2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_sean_decompMerge"></canvas>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <div class="video-compare-container" id="iphone_myface1_2_decompDiv">
+                    <video class="video" id="iphone_myface1_2_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_2.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="10" width="10" class="videoMerge" id="iphone_myface1_2_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="iphone_myface1_3_decompDiv">
+                    <video class="video" id="iphone_myface1_3_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_3.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface1_3_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="iphone_myface1_4_decompDiv">
+                    <video class="video" id="iphone_myface1_4_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_4.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface1_4_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="iphone_myface1_5_decompDiv">
+                    <video class="video" id="iphone_myface1_5_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_5.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface1_5_decompMerge"></canvas>
+                </div>
+            </div>
+    
+            <div class="video-container">
+                <div class="video-compare-container" id="iphone_myface1_6_decompDiv">
+                    <video class="video" id="iphone_myface1_6_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_6.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface1_6_decompMerge"></canvas>
+                </div>
+                <div class="video-compare-container" id="iphone_myface1_1_decompDiv">
+                    <video class="video" id="iphone_myface1_1_decomp" loop="" playsinline="" autoplay="" muted="" src="media/sad_gs/iphone_myface1_1.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                    <canvas height="340" width="600" class="videoMerge" id="iphone_myface1_1_decompMerge"></canvas>
+                </div>
+            </div>
         </center>
     </div>
 
