@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Neuralangelo: High-Fidelity Neural Surface Reconstruction</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--FACEBOOK-->
+    <meta property="og:image" content="https://research.NVIDIA.com/labs/dir/neuralangelo/assets/gif/david.gif">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="540">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://research.NVIDIA.com/labs/dir/neuralangelo/" />
+    <meta property="og:title" content="Neuralangelo" />
+    <meta property="og:description"
+        content="Project page for Neuralangelo: High-Fidelity Neural Surface Reconstruction." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Neuralangelo" />
+    <meta name="twitter:description"
+        content="Project page for Neuralangelo: High-Fidelity Neural Surface Reconstruction." />
+    <meta name="twitter:image" content="https://research.NVIDIA.com/labs/dir/neuralangelo/assets/gif/david.gif" />
+
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'> -->
+
+    <link rel="stylesheet" href="js/dics/dics.original.css">
+    <script src="js/dics/dics.original.js"></script>
+    <script src="js/event_handler.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body lang="en">
+    <main role="main">
+
+        <section class="jumbotron text-center" id="banner">
+            <div class="container" id="title">
+                <h2 class="jumbotron-heading">
+                    <span id="name">Neuralangelo</span>: High-Fidelity Neural Surface Reconstruction
+                </h2>
+            </div>
+
+            <div class="container" style="max-width: 840px;">
+                <div class="row row-author" style="margin: 0 70px 0 70px;">
+                    <div class="col-md author"><a href="https://mli0603.github.io/" target="_blank">Zhaoshuo
+                            Li</a><sup>1,2</sup></div>
+                    <div class="col-md author"><a href="https://tom94.net/" target="_blank">Thomas
+                            M&uumlller</a><sup>1</sup></div>
+                    <div class="col-md author"><a href="https://research.NVIDIA.com/person/alex-evans"
+                            target="_blank">Alex Evans</a><sup>1</sup></div>
+                    <div class="col-md author"><a href="https://www.cs.jhu.edu/~rht/" target="_blank">Russell H.
+                            Taylor</a><sup>2</sup></div>
+                </div>
+
+                <div class="row row-author" style="margin: 0 70px 0 70px;">
+                    <div class="col-md author"><a href="https://mathiasunberath.github.io/" target="_blank">Mathias
+                            Unberath</a><sup>2</sup></div>
+                    <div class="col-md author"><a href="https://mingyuliu.net/" target="_blank">Ming-Yu
+                            Liu</a><sup>1</sup></div>
+                    <div class="col-md author"><a href="https://chenhsuanlin.bitbucket.io/" target="_blank">Chen-Hsuan
+                            Lin</a><sup>1</sup></div>
+                </div>
+
+                <div class="row" style="margin-top:0.5rem; margin-left: auto; margin-right: auto;">
+                    <div class="col-md">
+                        <div id="affiliation">
+                            <sup>1</sup>NVIDIA Corporation &nbsp;&nbsp;&nbsp;&nbsp; <sup>2</sup>Johns Hopkins University</h9>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="venue">
+                IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023<br><br>
+                <a href="https://time.com/collection/best-inventions-2023/6324133/neuralangelo/"><span id="highlight">TIME's Best Inventions of 2023</span></a>
+            </div>
+
+            <div class="buttons">
+                <a href="https://arxiv.org/abs/2306.03092" target="_blank" class="btn btn-primary my-2">Paper (arXiv)</a>
+                <a href="paper.pdf" target="_blank" class="btn btn-primary my-2">Paper</a>
+                <a href="supplementary.pdf" target="_blank" class="btn btn-primary my-2">Supplementary</a>
+                <a href="https://github.com/nvlabs/neuralangelo" target="_blank" class="btn btn-primary1 my-2">Code</a>
+                <a href="https://colab.research.google.com/drive/13u8DX9BNzQwiyPPCB7_4DbSxiQ5-_nGF" target="_blank" class="btn btn-primary1 my-2">Colab notebook</a>
+                <!-- <a href="https://arxiv.org/abs/TODO" target="_blank" class="btn btn-primary my-2">arXiv preprint</a> -->
+            </div>
+
+            <div class="container">
+                <div class="row" id="pitch">
+                    <p style="text-align: center;">
+                        Neuralangelo is a framework for high-fidelity 3D surface reconstruction from RGB video captures.
+                        Using ubiquitous mobile devices, we enable users to create digital twins of both object-centric and large-scale real-world scenes with highly detailed 3D geometry.
+                    </p>
+                </div>
+                <div class="row" id="inquiries">
+                    <p style="text-align: center;">
+                        For business inquiries, please visit our website and submit the form: <a href="https://www.nvidia.com/en-us/research/inquiries/">NVIDIA Research Licensing</a>.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div style="padding: 60px 0 10px 0; text-align: center; font-size: 90%;">
+        (best viewed with Google Chrome on a desktop/laptop)
+    </div>
+
+    <div class="container" style="padding-top: 30px;">
+
+        <!-- Abstract -->
+        <h5>Abstract</h5>
+        <p style="text-align: justify;">
+            Neural surface reconstruction has shown to be powerful for recovering dense 3D surfaces via image-based neural rendering.
+            However, current methods struggle to recover detailed structures of real-world scenes.
+            To address the issue, we present Neuralangelo, which combines the representation power of multi-resolution 3D hash grids with neural surface rendering.
+            Our approach is enabled by two key ingredients: (1) numerical gradients for computing higher-order derivatives as a smoothing operation and (2) coarseto-fine optimization on the hash grids controlling different levels of details.
+            Even without auxiliary depth, Neuralangelo can effectively recover dense 3D surface structures from multi-view images with a fidelity that significantly surpasses previous methods, enabling detailed large-scale scene reconstruction from RGB video captures.
+        </p>
+
+        <!-- Summary video -->
+        <hr>
+        <h5>Video</h5>
+        <div style="text-align: center;">
+            <!-- <iframe width=860 height=484 class="large_video" src="https://www.youtube.com/embed/dCmCZs2Hpi0" frameborder=0></iframe> -->
+            <video width=100% class="large_video" controls><source src="assets/video.mp4" type="video/mp4">X</video>
+        </div>
+
+        <!-- Large-scale reconstruction -->
+        <hr>
+        <h5>Large-scale Reconstruction</h5>
+        <div class="container">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="large-scale-recon-1">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="largeSceneEvent(0)">NVIDIA HQ Park</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(1)">Johns Hopkins University</a>
+                </li>
+            </ul>
+            <ul class="nav nav-tabs nav-fill nav-justified" id="large-scale-recon-2">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(2)">Barn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(3)">Caterpillar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(4)">Courthouse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(5)">Ignatius</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(6)">Meetingroom</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="largeSceneEvent(7)">Truck</a>
+                </li>
+            </ul>
+            <div class="b-dics" style="width: 3000px">
+                <img src="assets/img/nvidia/rgb.png" alt="RGB view synthesis">
+                <img src="assets/img/nvidia/mesh.png" alt="3D surface reconstruction">
+                <img src="assets/img/nvidia/normal.png" alt="Surface normal">
+            </div>
+        </div>
+
+        <!-- Object-centric reconstruction -->
+        <hr>
+        <h5>Object-centric Reconstruction</h5>
+        <div class="container">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="objectSceneEvent(0)">Scan24</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(1)">Scan37</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(2)">Scan40</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(3)">Scan63</a>
+                </li>
+            </ul>
+            <div class="b-dics" style="width: 3000px; font-weight: 600;">
+                <img src="assets/img/dtu24/neus.png" alt="NeuS">
+                <img src="assets/img/dtu24/ours.png" alt="Neuralangelo (Ours)">
+                <img src="assets/img/dtu24/neuralwarp.png" alt="NeuralWarp">
+            </div>
+        </div>
+
+        <!-- Approach -->
+        <hr>
+        <h5>Approach</h5>
+        <div class="container">
+            <div>
+                Neuralangelo builds on top of <a href="https://nvlabs.github.io/instant-ngp/">multi-resolution hash encoding</a> and
+                <a href="https://lingjie0206.github.io/papers/NeuS/">SDF-based volume rendering</a>.
+            </div>
+
+            <div>
+                <br>
+                <h6>1.&nbsp;&nbsp;Numerical gradients to compute higher-order derivatives</h6>
+                <div class="approach_text">
+                    Using numerical gradients with step size matching the spatial resolutions of hash grid optimizes beyond the local cells. The numerical gradients act as a smoothing operation on the SDF in comparison to the analytical gradients.
+                </div>
+                <div class="text-center">
+                    <video width=90% class="approach_video" controls autoplay muted loop>
+                        <source src="assets/numerical_gradient.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <br>
+                <h6>2.&nbsp;&nbsp;Progressive level of details</h6>
+                <div class="approach_text">
+                    By progressively decreasing the step size for numerical gradient and enabling higher resolution hash grids, the optimization landscape is better shaped to recover both large smooth surfaces and fine geometric details. Such a learning curriculum enables progressive level of details.
+                </div>
+                <div class="text-center">
+                    <video width=90% class="approach_video" controls autoplay muted loop>
+                        <source src="assets/coarse_to_fine.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <br>
+                <h6>3.&nbsp;&nbsp;Optimization</h6>
+                <div class="approach_text">
+                    Neuralangelo uses three optimization objectives:
+                    $$\mathcal{L} = \mathcal{L}_{rgb} + w_\text{eik} \mathcal{L}_{eik} + w_\text{curv}
+                    \mathcal{L}_{curv}.$$
+
+                    <ul>
+                        <li>RGB synthesis loss \( \mathcal{L}_{rgb} \) : &nbsp;RGB reconstruction loss between the input image and synthesized images.</li>
+                        <li>Eikonal loss \( \mathcal{L}_{eik} \) : &nbsp;regularize underlying SDF such that the surface normals are unit-norm.</li>
+                        <li>Curvature loss \( \mathcal{L}_{curv} \) : &nbsp;regularize underlying SDF such that the mean-curvature is not arbitrarily large.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CVPR video -->
+        <hr>
+        <h5>Presentation</h5>
+        <div style="text-align: center;">
+            <iframe width=100% height=486 class="large_video" src="https://www.youtube.com/embed/Qpdw3SW54kI" frameborder=0></iframe>
+        </div>
+
+        <!-- poster -->
+        <hr>
+        <h5>Poster</h5>
+        <div style="text-align: center;">
+            <div class="enlarge">(Click image to enlarge)</div>
+            <a href="poster.pdf" target="_blank"><img src="poster.png" width=800></a>
+        </div>
+
+        <!-- Citation -->
+        <hr>
+        <h5>Citation</h5>
+        <div class="row">
+            <div id="citation">
+                @inproceedings{li2023neuralangelo,<br>
+                &nbsp;&nbsp;title={Neuralangelo: High-Fidelity Neural Surface Reconstruction},<br>
+                &nbsp;&nbsp;author={Li, Zhaoshuo and M\"uller, Thomas and Evans, Alex and Taylor, Russell H and Unberath, Mathias and Liu, Ming-Yu and Lin, Chen-Hsuan},<br>
+                &nbsp;&nbsp;booktitle={IEEE Conference on Computer Vision and Pattern Recognition ({CVPR})},<br>
+                &nbsp;&nbsp;year={2023}<br>
+                }
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery.js"></script>
+
+    <!-- Default Statcounter code for Neuralangelo
+    https://research.nvidia.com/labs/dir/neuralangelo/ -->
+    <script type="text/javascript">
+    var sc_project=12819112; 
+    var sc_invisible=1; 
+    var sc_security="71c1464a"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12819112/0/71c1464a/1/"
+    alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
