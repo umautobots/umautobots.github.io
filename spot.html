@@ -164,24 +164,32 @@
         </div>
         <!-- Links -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
-            <!--<div class="col" style="width: 25%; height: 60pt;">
-                <a href="TODO: add preprint link here">
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://arxiv.org/abs/2404.12339">
                     <img src="./web_elements/paper.png" height="75pt"/>
                 </a>
-            </div> -->
-            <div class="col" style="width: 100%; height: 60pt;">
-                <a href="https://github.com/umautobots/">
+            </div>
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://github.com/umautobots/SPOT">
                     <img src="./web_elements/github.png" height="75pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 60pt;">
+                <a href="https://umautobots.github.io/nsavp">
+                    <img src="./web_elements/database.png" height="75pt"/>
                 </a>
             </div>
         </div>
         <!-- Link name -->
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
-            <!--<div class="col" style="width: 25%; font-size:12pt; font-weight: 600;">
-                <p>Preprint</p>
-            </div> -->
-            <div class="col" style="width: 100%; font-size:12pt; font-weight: 600;">
-                <p>Code (coming soon)</p>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Preprint (will be updated with appendix soon)</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Code</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>NSAVP Dataset</p>
             </div>
         </div>
     </div>
@@ -192,11 +200,25 @@
     <!-- Overview -->
     <div class="container">
         <h2 class="section_title">Abstract</h2>
-        <p class="body">Recognizing places from an opposing viewpoint during a return trip is a common experience for human drivers. However, the analogous robotics capability, place recognition with limited field of view cameras under 180 degree rotations, has proven to be challenging to achieve. To address this problem, this paper presents Same Place Opposing Trajectory (SPOT), a technique for opposing viewpoint VPR that relies exclusively on structure estimated through stereo visual odometry (VO). The method extends recent advances in LiDAR descriptors and utilizes a novel double (similar and opposing) distance matrix sequence matching method. We evaluate SPOT on a recently released dataset with 6.7-7.6 km routes driven in similar and opposing directions under various lighting conditions. The proposed algorithm demonstrates remarkable improvement over the state-of-the-art, achieving up to 91.7% recall at 100% precision in opposing viewpoint cases, while requiring less storage than all baselines tested and running faster than all but one. Moreover, the proposed method assumes no <i>a priori</i> knowledge of whether the viewpoint is similar or opposing, and also demonstrates competitive performance in similar viewpoint cases.
+        <p class="body">Recognizing places from an opposing viewpoint during a return trip is a common experience for human drivers. However, the analogous robotics capability, visual place recognition (VPR) with limited field of view cameras under 180 degree rotations, has proven to be challenging to achieve. To address this problem, this paper presents Same Place Opposing Trajectory (SPOT), a technique for opposing viewpoint VPR that relies exclusively on structure estimated through stereo visual odometry (VO). The method extends recent advances in lidar descriptors and utilizes a novel double (similar and opposing) distance matrix sequence matching method. We evaluate SPOT on a publicly available dataset with 6.7-7.6 km routes driven in similar and opposing directions under various lighting conditions. The proposed algorithm demonstrates remarkable improvement over the state-of-the-art, achieving up to 91.7% recall at 100% precision in opposing viewpoint cases, while requiring less storage than all baselines tested and running faster than all but one. Moreover, the proposed method assumes no <i>a priori</i> knowledge of whether the viewpoint is similar or opposing, and also demonstrates competitive performance in similar viewpoint cases.
         </p>
     </div>
 
     <!-- Citation -->
-    <!-- TODO: add preprint citation -->
+    <div class="container">
+        <h2 class="section_title">Citation</h2>
+        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
+            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
+                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
+                    @misc{carmichael2024spot, <br>
+                        title={SPOT: Point Cloud Based Stereo Visual Place Recognition for Similar and Opposing Viewpoints}, <br>
+                        author={Spencer Carmichael and Rahul Agrawal and Ram Vasudevan and Katherine A. Skinner}, <br>
+                        year={2024}, <br>
+                        eprint={2404.12339}, <br>
+                        archivePrefix={arXiv}, <br>
+                        primaryClass={cs.RO}}
+            </div></li>
+        </ul>
+    </div>
 </body>
 </html>
