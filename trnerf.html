@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<title>TRNeRF: Restoring Blurry, Rolling Shutter, and Noisy Thermal Images with Neural Radiance Fields</title>
+	<meta name="description" content="TRNeRF">
+    <style>
+        .title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:30pt;
+            margin-bottom:0pt;
+            margin-left: auto;
+            margin-right: auto;
+            color:#303030;
+            font-size:35pt;
+            font-weight:800;
+            letter-spacing:0pt;
+            max-width:1200px;
+        }
+        .subtitle{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:8pt;
+            margin-bottom:0;
+            margin-left: auto;
+            margin-right: auto;
+            color:#303030;
+            font-size:25pt;
+            font-weight:500;
+            letter-spacing:0pt;
+            max-width:1200px;
+        }
+        .section_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            color:#181818;
+            font-size:25pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .body{
+	    font-family: Arial, Helvetica, sans-serif;
+            color:#000000;
+            padding-right:25pt;
+            padding-left:25pt;
+            padding-bottom:25pt;
+            text-align:justify;
+            font-size:14pt;
+            font-weight:100;
+            letter-spacing:0pt;
+            line-height: 20pt;
+        }
+        .col{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            float: left;
+            color:#000000;
+            font-weight:100;
+            letter-spacing:0pt;
+            height: 25pt;
+        }
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .affiliation{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:10pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .container{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 5pt;
+            max-width:1200px
+        }
+
+        /*Adapted from source: https://www.w3schools.com/howto/howto_js_slideshow.asp */
+
+        .mySlides {display: none}
+        .slideshow-container {
+            max-width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 54%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .caption {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ffffff;
+            font-size: 15pt;
+            position: absolute;
+            font-weight: 600;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+
+<body style="background-color:#ffffff;">
+    <div class="section">
+        <h1 class="title">TRNeRF</h1>
+        <h1 class="subtitle">Restoring Blurry, Rolling Shutter, and Noisy Thermal Images <br> with Neural Radiance Fields</h1>
+        <!-- Author names first row -->
+        <div class="row" style="max-width:800px;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+                <p>Spencer Carmichael<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+                <p>Manohar Bhat<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+                <p>Mani Ramanagopal<sup>3</sup></p>
+            </div>
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+                <p>Austin Buchan<sup>1</sup></p>
+            </div>
+        </div>
+        <!-- Mailbox first row -->
+        <div class="row" style="max-width:800px;">
+            <div class="col", style="font-size:10pt; width: 25%;">
+                <p>specarmi@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; width: 25%;">
+                <p>manubhat@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; width: 25%;">
+                <p>manikans@andrew.cmu.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; width: 25%;">
+                <p>adbuchan@umich.edu</p>
+            </div>
+        </div>
+        <!-- Author names second row -->
+        <div class="row" style="max-width:800px;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 50%;">
+                <p>Ram Vasudevan<sup>1,2</sup></p>
+            </div>
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 50%;">
+                <p>Katherine A. Skinner<sup>1</sup></p>
+            </div>
+        </div>
+        <!-- Mailbox second row -->
+        <div class="row" style="max-width:800px;">
+            <div class="col", style="font-size:10pt; width: 50%;">
+                <p>ramv@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; width: 50%;">
+                <p>kskin@umich.edu</p>
+            </div>
+        </div>
+        <!-- Affiliation -->
+        <div class="affiliation" style="margin-bottom: -10pt;">
+            <p><sup>1</sup>Robotics Department, University of Michigan, Ann Arbor</p>
+        </div>
+        <div class="affiliation" style="margin-bottom: -10pt;">
+            <p><sup>2</sup>Department of Mechanical Engineering, University of Michigan, Ann Arbor</p>
+        </div>
+        <div class="affiliation">
+            <p><sup>3</sup>Robotics Institute, Carnegie Mellon University, Pittsburgh</p>
+        </div>
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://umautobots.github.io/trnerf">
+                    <img src="./web_elements/paper.png" height="40pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://umautobots.github.io/trnerf">
+                    <img src="./web_elements/github.png" height="40pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://umautobots.github.io/trnerf">
+                    <img src="./web_elements/database.png" height="40pt"/>
+                </a>
+            </div>
+        </div>
+        <!-- Link names -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Preprint (coming soon)</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Code (coming soon)</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Dataset (coming soon)</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 0pt; margin-bottom: -30pt;">
+        <h2 class="section_title">Example Results</h2>
+    </div>
+    <!-- Example results slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+                <p>(1/4) <b>Fast</b> camera movement (playback 1/4x speed) <b>Indoor</b> scene</p>
+            </div>
+            <video width="100%" id="fast_indoor" autoplay muted loop controls>
+                <source src="media/trnerf/fast_indoor_raw_vs_trnerf_quarter_speed_first_15_sec.mp4">
+            </video>
+            <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
+            <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
+        </div>
+        <div class="mySlides">
+            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+                <p>(2/4) <b>Fast</b> camera movement (playback 1/4x speed) <b>Outdoor</b> scene</p>
+            </div>
+            <video width="100%" id="fast_outdoor" autoplay muted loop controls>
+                <source src="media/trnerf/fast_outdoor_raw_vs_trnerf_quarter_speed_first_15_sec.mp4">
+            </video>
+            <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
+            <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
+        </div>
+        <div class="mySlides">
+            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+                <p>(3/4) <b>Medium</b> camera movement (playback 1x speed) <b>Indoor</b> scene</p>
+            </div>
+            <video width="100%" id="medium_indoor" autoplay muted loop controls>
+                <source src="media/trnerf/medium_indoor_raw_vs_trnerf_first_15_sec.mp4">
+            </video>
+            <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
+            <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
+        </div>
+        <div class="mySlides">
+            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+                <p>(4/4) <b>Medium</b> camera movement (playback 1x speed) <b>Outdoor</b> scene</p>
+            </div>
+            <video width="100%" id="medium_outdoor" autoplay muted loop controls>
+                <source src="media/trnerf/medium_outdoor_raw_vs_trnerf_first_15_sec.mp4">
+            </video>
+            <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
+            <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+    <!-- Abstract -->
+    <div class="container">
+        <h2 class="section_title">Abstract</h2>
+        <p class="body"> Thermal cameras offer unique detection capabilities in building inspections, search and rescue
+            operations, and autonomous vehicle perception. Of the different types of thermal cameras, uncooled
+            microbolometers are often chosen due to their relative affordability, small size, and low power consumption.
+            However, microbolometers suffer from motion blur, rolling shutter distortions, and fixed pattern noise,
+            which limit the conditions of their use. Nearly all prior methods for microbolometer image restoration
+            account for only one of these degradations, and current techniques addressing microbolometer blur and
+            rolling shutter are limited. This paper presents TRNeRF, a thermal image restoration method that jointly
+            addresses all three degradations by incorporating the microbolometer image formation model with Neural
+            Radiance Fields (NeRFs). To evaluate TRNeRF, this paper introduces a new real-world dataset that is uniquely
+            designed to support two novel quantitative evaluation strategies for thermal image restoration. Experiments
+            demonstrate that TRNeRF is able to recover sharp, global shutter, and clear thermal images, even under
+            extremely aggressive camera motion that causes existing methods to fail.
+        </p>
+    </div>
+    <!-- Rendering Pipeline -->
+    <div class="container">
+        <h2 class="section_title">Rendering Pipeline</h2>
+        <p class="body"> We train an accurate representation of the thermal scene by incorporating motion blur, rolling
+            shutter distortions, and fixed pattern noise into the NeRF rendering pipeline such that the rendered pixels
+            can be supervised by the real captured images subject to degradation. The left side of this figure depicts
+            the learned scene and the views traversed by two pixels readout at different times. The remaining sections
+            show how a single degraded pixel value is estimated and contributes to the loss. At the inference stage, the
+            augmentations to the rendering pipeline are removed and the trained model can be used to directly render
+            restored images.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/trnerf/method_fig.png", width="94%">
+        </div>
+    </div>
+    <!-- Dataset -->
+    <div class="container">
+        <h2 class="section_title">Dataset</h2>
+        <p class="body"> To collect our dataset, we designed a rig with a backpack mounted computer and hand-held sensor
+        platform including two microbolometer thermal cameras, two monochrome cameras, and an IMU (included for future
+        work). The thermal cameras are placed side-by-side to support the comparison of different camera settings. The
+        dataset includes a sunny outdoor scene with high thermal contrast, and an air-conditioned indoor scene with low
+        thermal contrast. For each scene there are three recorded sequences, denoted slow, medium, and fast, with
+        increasingly aggressive six degree-of-freedom camera motion.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/trnerf/rig_fig_website.png", width="94%">
+        </div>
+    </div>
+    <!-- Evaluation Methods -->
+    <div class="container">
+        <h2 class="section_title">Evaluation Methods</h2>
+        <p class="body"> We introduce two novel quantitative methods for evaluating thermal
+        image restoration. The first method utilizes a multi-spectral Aprilgrid board that is placed in each scene. The
+        board can be detected in both the sharp visible spectrum images and the restored thermal images. We use the
+        the detections in the monochrome images to project the board's corners into the thermal images. We then compute the
+        percentage of successfully detected corners in the thermal images to assess how well areas of the board were
+        restored. The second method involves rendering pseudo ground truth images using a standard NeRF model
+        trained on the relatively undegraded slow sequence thermal images (following the removal of fixed pattern noise
+        through a two point non-uniformity correction). We compute the LPIPS metric between the restored and pseudo
+        ground truth images.
+        </p>
+        <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: -35pt">
+            <p>Detection Based Evaluation Method</p>
+        </div>
+        <video style="margin-left:25pt;" width="94%" id="detection" autoplay muted loop controls>
+            <source src="media/trnerf/medium_indoor_detection_sixth_speed_first_15_sec.mp4">
+        </video>
+        <div style="text-align: center;">
+            <img src="images/trnerf/detection_legend.png", width="350pt">
+        </div>
+        <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt;">
+            <p>Pseudo Ground Truth Based Evaluation Method</p>
+        </div>
+        <video style="margin-left:25pt;" width="94%" id="lpips" autoplay muted loop controls>
+            <source src="media/trnerf/fast_indoor_lpips_fifteenth_speed.mp4">
+        </video>
+    </div>
+    <!-- Abalation Study -->
+    <div class="container">
+        <h2 class="section_title">Ablation Study</h2>
+        <p class="body"> Our ablation study demonstrates that it is necessary to account for
+        all three degradations and that seemingly subtle details can have a substantial impact on restoration
+        performance. In particular, onboard image filters, which were enabled by default in our thermal cameras, can
+        produce significant artifacts in the restored images.
+        </p>
+        <video style="margin-left:25pt;" width="94%" id="ablations" autoplay muted loop controls>
+            <source src="media/trnerf/fast_indoor_ablation_quarter_speed.mp4">
+        </video>
+    </div>
+    <!-- Citation -->
+    <div class="container">
+        <h2 class="section_title">Citation</h2>
+        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
+            <ul style="padding-left:0"><div style="background-color:#e6e6e6; padding-bottom: 10pt; padding-top: 10pt">
+                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
+                    @misc{trnerf2024, <br>
+                        title={TRNeRF: Restoring Blurry, Rolling Shutter, and Noisy Thermal Images with Neural Radiance Fields}, <br>
+                        author={Spencer Carmichael and Manohar Bhat and Mani Ramanagopal and Austin Buchan and Ram Vasudevan and Katherine A. Skinner}, <br>
+                        year={2024}, <br>
+                        eprint={TODO:PLACEHOLDER}, <br>
+                        archivePrefix={arXiv}, <br>
+                        primaryClass={cs.CV}}
+            </div></li>
+        </ul>
+    </div>
+
+    <script>
+        // From source: https://www.w3schools.com/howto/howto_js_slideshow.asp
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+    </script>
+
+</body>
+</html>
