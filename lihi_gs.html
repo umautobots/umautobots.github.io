@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<!-- THE DOCTYPE tells the browser what type of webpage to render, the doctype used in this website is HTML5 which is the most recent HTML. -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>LiHi-GS: LiDAR-Supervised Gaussian Splatting for Highway Driving Scene
+        Reconstruction</title>
+	<meta name="description" content="LiHi-GS: LiDAR-Supervised Gaussian Splatting for Highway Driving Scene
+        Reconstruction.">
+    
+    <!-- Import for video comparison slider -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/nv.css">
+
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <script src="js/video_comparison.js"></script>
+    <!-- <script src="js/app.js"></script> -->
+    <script src="js/event_handler.js"></script>
+    
+    <!-- Code for image comparison slider -->
+    <script>
+        var fg, slider, slider_bt;
+        function moveDivisor(id, linkid) {
+            console.log("moveDivisor", id, linkid);
+            if (linkid != null) {
+                linked_slider = document.getElementById("slider__input" + linkid);
+                linked_slider.value = document.getElementById("slider__input" + id).value;
+                moveDivisor(linkid, null);
+            }
+    
+            slider = document.getElementById("slider__input" + id);
+            slider_bt = document.getElementById("slider__button" + id);
+            fg = document.getElementById("slider__overlay" + id);
+    
+            fg.style['width'] = slider.value+"%";
+            slider_bt.style['left'] = "calc("+slider.value+"% - 15px)";
+        }
+    
+        function moveImageSlider(img_folder, id) {
+            slider = document.getElementById("slider__input" + id);
+            img = document.getElementById("slider__img" + id);
+            img.src = String(img_folder) + "/" + slider.value + ".jpg";
+        }
+
+    </script>
+
+    <style>
+        .title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:30pt;
+            margin-bottom:0pt;
+            color:#303030;
+            font-size:45pt;
+            font-weight:900;
+            letter-spacing:0pt;
+        }
+        .subtitle{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:8pt;
+            margin-bottom:0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width:1100px;
+            color:#303030;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .section_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#181818;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .subsection_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#504d4d;
+            font-size:20;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .body{
+	    font-family: Arial, Helvetica, sans-serif;
+            color:#000000;
+            padding-right:25pt;
+            padding-left:25pt;
+            padding-bottom:25pt;
+            text-align:justify;
+            font-size:12pt;
+            font-weight:300;
+            letter-spacing:0pt;
+            line-height: 20pt;
+        }
+        .col{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            float: left;
+            width: 25%;
+            color:#000000;
+            font-size:16pt;
+            font-weight:100;
+            letter-spacing:0pt;
+            height: 25pt;
+            padding-bottom:5pt;
+        }   
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+            max-width:1080px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .affiliation{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:17pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .contribution{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:13.5pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .publish{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:20pt;
+            font-weight:600;
+            letter-spacing:0pt;
+        }
+        .container{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 5pt;
+            max-width: 70vw; /*940 px*/
+        }
+        .sliders-container {
+            display: flex;
+            justify-content: space-between; /* Adjusts space between sliders */
+            gap: -50px; /* Optional: adds space between sliders */
+            /* margin-top: -120pt;
+            margin-bottom: -120px; */
+          }
+    </style>
+</head>
+<body style="background-color:#ffffff;">
+    <!-- Author list -->
+    <div class="section">
+        <h1 class="title">LiHi-GS &#x1F680;</h1>
+        <!-- <h1 class="title is-1 publication-title"><img src="media/loner_icon.jpg" width="90">LONER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1> -->
+       
+        <h1 class="subtitle">LiDAR-Supervised Gaussian Splatting for Highway Driving Scene
+            Reconstruction</h1>
+        <div class="publish">
+            <p></p>
+        </div>
+        <!-- Author name-->
+        <div class="row">
+            <div class="col" style="font-size:18pt; font-weight: 200;">
+                <p>Pou-Chun Kung<sup>1*,2</sup></p>
+            </div>
+            <div class="col" style="font-size:18pt; font-weight: 200;">
+                <p>Xianling Zhang<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-size:18pt; font-weight: 200;">
+                <p>Katherine A. Skinner<sup>2</sup></p>
+            </div>
+            <div class="col" style="font-size:18pt; font-weight: 200;">
+                <p>Nikita Jaipuria<sup>1</sup></p>
+            </div>
+        </div>    
+        <!-- Mailbox -->
+        <div class="row">
+            <div class="col", style="font-size:10pt; margin-top:5px; margin-top:10pt">
+                <p>pckung@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; margin-top:5px; margin-top:10pt">
+                <p>xzhang@lat.ai</p>
+            </div>
+            <div class="col", style="font-size:10pt; margin-top:5px; margin-top:10pt">
+                <p>kskin@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; margin-top:5px; margin-top:10pt">
+                <p>njaipuria@lat.ai</p>
+            </div>
+        </div> 
+        <!-- Authors affiliation -->
+        <div class="affiliation">
+            <p> <sup>1</sup> Latitude AI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sup>2</sup> University of Michigan, Ann Arbor. </p>
+        </div>
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;margin-bottom:35px;max-width:400px;">
+            <!-- latitude icon -->
+            <div class="col" style="width: 50%; line-height: 50pt;">
+                <img src="./images/lihi_gs/Latitude_Logo-DarkBlue-Vertical.png" height="70pt"/>
+            </div>
+            <!-- um icon -->
+            <div class="col" style="width: 50%; line-height: 50pt;">
+                <img src="./images/lihi_gs/robotics-social-blue.jpg" height="70pt" />
+            </div>
+        </div>
+
+        <!-- Footnote -->
+        <div class="contribution" style="margin-top:40pt;">
+            <p>* The project is done during his internship at Latitude AI</p>
+        </div>
+
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
+            <!-- paper icon -->
+            <div class="col" style="width: 100%; line-height: 50pt; margin-bottom:10pt;">
+                <a href="https://arxiv.org/pdf/2412.15447">
+                    <img src="./web_elements/paper.png" height="60pt"/>
+                </a>
+            </div>
+            <!-- github icon -->
+            <!-- <div class="col" style="width: 50%; line-height: 50pt;">
+                <a href="https://github.com/umautobots/LONER">
+                    <img src="./web_elements/github.png" height="35pt" style="opacity:.85"/>
+                </a>
+            </div> -->
+        </div>
+        
+        <!-- Link name -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:300px; line-height: 10pt; margin-bottom:20pt;">
+            <div class="col" style="width: 100%; font-size:16pt; font-weight: 500;">
+                <p>Paper</p>
+            </div>
+            <!-- <div class="col" style="width: 50%; font-size:10pt; font-weight: 500;">
+                <p>GitHub</p>
+            </div> -->
+        </div>
+
+    </div>
+    <!-- Teaser Figure -->
+    <div class="container" style="padding-top: 0pt;">
+        <!-- <h2 class="section_title">Overview</h2> -->
+        <img src="images/lihi_gs/teaser_figure_v3.png" alt="Teaser Figure" style="width: 100%;">
+        <p class="body">
+        LiHi-GS provides higher quality color and depth renderings for interpolated novel views and for ego/actor shifts compared to state-of-the-art NeRF (NeuRAD) and GS-based (StreetGS) methods. LiHi-GS does particularly well on actor shifts at longer-ranges (173 meters)
+        </p>
+    </div>
+
+    <!-- Abstract -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Abstract</h2>
+        <p class="body">
+            <b>TL;DR: We introduce LiHi-GS, a novel LiDAR-supervised Gaussian Splatting method with LiDAR sensor modeling evaluated in challenging high-speed, featureless highway scenarios. </b> <br>
+            Photorealistic 3D scene reconstruction plays an important role in autonomous driving, enabling the generation of novel data from existing datasets to simulate safety-critical scenarios and expand training data without additional acquisition costs. Gaussian Splatting (GS) facilitates real-time, photorealistic rendering with an explicit 3D Gaussian representation of the scene, providing faster processing and more intuitive scene editing than the implicit Neural Radiance Fields (NeRFs). While extensive GS research has yielded promising advancements in autonomous driving applications, they overlook two critical aspects: First, existing methods mainly focus on low-speed and feature-rich urban scenes and ignore the fact that highway scenarios play a significant role in autonomous driving. Second, while LiDARs are commonplace in autonomous driving platforms, existing methods learn primarily from images and use LiDAR only for initial estimates or without precise sensor modeling, thus missing out on leveraging the rich depth information LiDAR offers and limiting the ability to synthesize LiDAR data. In this paper, we propose a novel GS method for dynamic scene synthesis and editing with improved scene reconstruction through LiDAR supervision and support for LiDAR rendering. Unlike prior works that are tested mostly on urban datasets, to the best of our knowledge, we are the first to focus on the more challenging and highly relevant highway scenes for autonomous driving, with sparse sensor views and monotone backgrounds.
+        </p>
+        <!--
+        <div style="text-align: center;">
+            <img src="./web_elements/main.png", width="700pt">
+        </div>
+        -->
+    </div>
+
+    <!-- Overview -->
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Overview</h2>
+        <img src="images/lihi_gs/system_diagram_v6.png" alt="Overview Figure" style="width: 100%;">
+        <p class="body">
+        System overview. LiHi-GS takes multiple cameras, LiDAR, and annotated 3D poses as input. In the preprocessing step, a LiDAR map combined with a COLMAP sparse point cloud is used for static scene initialization, while aggregated LiDAR points are used for dynamic object initialization. Our method enables LiDAR supervision during training and supports rendering both images and LiDAR.
+        </p>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">RGB Rendering Comparisons</h2>
+    </div>
+    <!-- Rendering 1 -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background2" style="background-image: url(images/lihi_gs/moving1_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay2" style="background-image: url(images/lihi_gs/moving1_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button2" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input2" oninput="moveDivisor(2, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background3" style="background-image: url(images/lihi_gs/moving1_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay3" style="background-image: url(images/lihi_gs/moving1_gt_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button3" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input3" oninput="moveDivisor(3, )">
+            </div>
+        </div>
+    </div>
+
+    <!-- Rendering 2 -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -11vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background4" style="background-image: url(images/lihi_gs/moving2_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay4" style="background-image: url(images/lihi_gs/moving2_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button4" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input4" oninput="moveDivisor(4, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background5" style="background-image: url(images/lihi_gs/moving2_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay5" style="background-image: url(images/lihi_gs/moving2_gt_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button5" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input5" oninput="moveDivisor(5, )">
+            </div>
+        </div>
+    </div>
+
+    <!-- Rendering 3 -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -11vw; margin-bottom: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background6" style="background-image: url(images/lihi_gs/moving3_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay6" style="background-image: url(images/lihi_gs/moving3_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button6" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input6" oninput="moveDivisor(6, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background7" style="background-image: url(images/lihi_gs/moving3_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay7" style="background-image: url(images/lihi_gs/moving3_gt_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button7" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input7" oninput="moveDivisor(7, )">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Depth Rendering Comparisons</h2>
+    </div>
+    <!-- Depth Rendering 2 -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background16" style="background-image: url(images/lihi_gs/depth2_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay16" style="background-image: url(images/lihi_gs/depth2_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button16" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input16" oninput="moveDivisor(16, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background17" style="background-image: url(images/lihi_gs/depth2_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay17" style="background-image: url(images/lihi_gs/depth2_original_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button17" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input17" oninput="moveDivisor(17, )">
+            </div>
+        </div>
+    </div>
+
+    <!-- Depth Rendering 1 -->
+    <div class="sliders-container" style="transform: scale(0.6); ; margin-top: -11vw; margin-bottom: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background14" style="background-image: url(images/lihi_gs/depth1_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay14" style="background-image: url(images/lihi_gs/depth1_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button14" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input14" oninput="moveDivisor(14, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background15" style="background-image: url(images/lihi_gs/depth1_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay15" style="background-image: url(images/lihi_gs/depth1_original_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button15" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input15" oninput="moveDivisor(15, )">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Scene Decomposition Comparisons</h2>
+    </div>
+    <!-- Dynamic Decomposition -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background8" style="background-image: url(images/lihi_gs/dyn_seg_original.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay8" style="background-image: url(images/lihi_gs/dyn_seg_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button8" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input8" oninput="moveDivisor(8, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background9" style="background-image: url(images/lihi_gs/dyn_seg_original.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay9" style="background-image: url(images/lihi_gs/dyn_seg_street_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button9" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input9" oninput="moveDivisor(9, )">
+            </div>
+        </div>
+    </div>
+    <!-- Static Decomposition -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -11vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background10" style="background-image: url(images/lihi_gs/bg_seg_original.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay10" style="background-image: url(images/lihi_gs/bg_seg_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button10" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input10" oninput="moveDivisor(10, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background11" style="background-image: url(images/lihi_gs/bg_seg_original.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay11" style="background-image: url(images/lihi_gs/bg_seg_street_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button11" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input11" oninput="moveDivisor(11, )">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Actors Editing Comparisons</h2>
+    </div>
+    <!-- Actor Editing -->
+    <div class="sliders-container" style="transform: scale(0.6); margin-top: -5vw;">
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
+            <div class="slider__img__bg" id="slider__background12" style="background-image: url(images/lihi_gs/actor_shift_street_gs.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay12" style="background-image: url(images/lihi_gs/actor_shift_lihi_gs.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button12" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input12" oninput="moveDivisor(12, )">
+            </div>
+        </div>
+        <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw;">
+            <div class="slider__img__bg" id="slider__background13" style="background-image: url(images/lihi_gs/actor_shift_neurad_.png);">
+                <div class="slider__img__bg__overlay" id="slider__overlay13" style="background-image: url(images/lihi_gs/actor_shift_original_.png); width: 50%;">
+                </div>
+                <div class="slider__button" id="slider__button13" style="left: calc(50% - 15px);"></div>
+                <input type="range" min="0" max="100" value="50" step="0.1" class="slider__input" id="slider__input13" oninput="moveDivisor(13, )">
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Rendering Comparisons on Moving Actors</h2>
+        <img src="images/lihi_gs/render_moving_v3.png" alt="Moving Actors Rendering Comparisons" style="width: 100%;">
+        <p class="body">
+        </p>
+    </div>
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Rendering Comparisons on Static Objects</h2>
+        <img src="images/lihi_gs/render_static_v3.png" alt="Static Objects Rendering Comparisons" style="width: 100%;">
+        <p class="body">
+        </p>
+    </div> -->
+
+
+    <!-- Method -->
+    <div class="container">
+        <h2 class="section_title">Gaussian Splatting LiDAR Modeling</h2>
+        <p class="body"> 
+        </p>
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/lidar_rendering.png", width="600pt">
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="section_title">2D Scale Compensation</h2>
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/2d_scale_compensation.png", width="50%">
+        </div>
+        <p class="body"> 
+        2D Gaussian scale compensation is aimed at avoiding small Gaussians that are lost during projection when rendering LiDAR range images
+        </p> 
+    </div>
+    <div class="container">
+        <h2 class="section_title">Depth Uncertainty Rendering</h2>
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/depth_uncertainty_v2.png", width="50%">
+        </div>
+        <p class="body"> 
+        LiDAR depth uncertainty rendering helps compensate for noisy artifacts around object edges.
+        </p> 
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/depth_uncertainty_filtered_point_cloud_v2.png", width="50%">
+        </div>
+        <p class="body"> 
+        Depth uncertainty filter removes floating artifacts from rendered point cloud        
+        </p>
+    </div>
+
+    <div class="container">
+        <h2 class="section_title">Camera-LiDAR Actor Alignment with Decoupled Pose Optimization</h2>
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/lidar-camera_decoupled_pose_optimization.png", width="50%">
+        </div>
+        <p class="body"> Camera-LiDAR misalignment for highway actors. To solve this issue we propose to decouple camera and LiDAR bounding box for pose optimization.
+        </p>
+    </div>
+
+    <!-- Citation -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Citation</h2>
+        <ul class="body" style="padding-left:50pt; font-size: 10pt; line-height: 15pt;">
+            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
+                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">  
+                    @article{lihi_gs,<br>
+                        title={LiHi-GS: LiDAR-Supervised Gaussian Splatting for Highway Driving Scene Reconstruction},<br>
+                        author={Kung, Pou-Chun and Zhang, Xianling and Skinner, Katherine A and Jaipuria, Nikita},<br>
+                        journal={arXiv preprint arXiv:2412.15447},<br>
+                        year={2024}<br>
+                      }
+            </div></li>
+        </ul>
+    </div>
+
+
+
+</body>
+</html>
