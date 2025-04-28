@@ -84,9 +84,9 @@
             text-align:left;
             padding-left:25pt;
             padding-right:25pt;
-            padding-top:25pt;
+            padding-top:0pt;
             color:#504d4d;
-            font-size:20;
+            font-size:25pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -161,6 +161,14 @@
             /* margin-top: -120pt;
             margin-bottom: -120px; */
           }
+        .video-container {
+            display: flex; /* Use flexbox for layout */
+            max-width: 70vw;
+        }
+        .video-container div{
+            width: 33%; /* Each video takes up 50% of the container width */
+            margin-right: 5px; /* Optional margin between videos */
+        }
     </style>
 </head>
 <body style="background-color:#ffffff;">
@@ -254,9 +262,9 @@
     <!-- Teaser Figure -->
     <div class="container" style="padding-top: 0pt;">
         <!-- <h2 class="section_title">Overview</h2> -->
-        <img src="images/lihi_gs/teaser_figure_v3.png" alt="Teaser Figure" style="width: 100%;">
+        <img src="images/lihi_gs/teaser_figure_v6.png" alt="Teaser Figure" style="width: 100%;">
         <p class="body">
-        LiHi-GS provides higher quality color and depth renderings for interpolated novel views and for ego/actor shifts compared to state-of-the-art NeRF (NeuRAD) and GS-based (StreetGS) methods. LiHi-GS does particularly well on actor shifts at longer-ranges (173 meters)
+        LiHi-GS provides higher quality color and depth renderings for interpolated novel views and for ego/actor shifts compared to state-of-the-art NeRF (NeuRAD) and GS-based (StreetGS) methods. LiHi-GS does particularly well on actor shifts at longer-ranges (205 meters)
         </p>
     </div>
 
@@ -282,10 +290,96 @@
         System overview. LiHi-GS takes multiple cameras, LiDAR, and annotated 3D poses as input. In the preprocessing step, a LiDAR map combined with a COLMAP sparse point cloud is used for static scene initialization, while aggregated LiDAR points are used for dynamic object initialization. Our method enables LiDAR supervision during training and supports rendering both images and LiDAR.
         </p>
     </div>
+    
+    <!-- 
+    14a9b60b: vs neurad 
+    4621b2bd: vs streetgs 
+    538b93ab: vs streetgs 
+    5fc54afc: vs neurad & streetgs
+    -->
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Highway Scene Reconstruction</h2>
+        <h2 class="subsection_title">Ours vs StreetGS (Gaussian Splatting w/o Lidar Supervision)</h2>
+
+    </div>
+
+    <div class="container" style="padding-top: 0pt;"></div>
+        <center>
+        <div class="video-container">
+            <div class="video-compare-container" id="4621b2bd_bl_Div">
+                <video class="video" id="4621b2bd_bl_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/4621b2bd/1920x540/streetgs_ours_back_left_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="4621b2bd_bl_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="4621b2bd_f_Div">
+                <video class="video" id="4621b2bd_f_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/4621b2bd/1920x540/streetgs_ours_front_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="4621b2bd_f_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="4621b2bd_br_Div">
+                <video class="video" id="4621b2bd_br_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/4621b2bd/1920x540/streetgs_ours_back_right_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="4621b2bd_br_Merge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="538b93ab_bl_Div">
+                <video class="video" id="538b93ab_bl_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/538b93ab/1920x540/streetgs_ours_back_left_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="538b93ab_bl_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="538b93ab_f_Div">
+                <video class="video" id="538b93ab_f_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/538b93ab/1920x540/streetgs_ours_front_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="538b93ab_f_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="538b93ab_br_Div">
+                <video class="video" id="538b93ab_br_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/538b93ab/1920x540/streetgs_ours_back_right_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="538b93ab_br_Merge"></canvas>
+            </div>
+        </div>
+        </center>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;">
+        <h2 class="subsection_title"> Ours vs NeuRAD (NeRF w/ Lidar Supervision)</h2>
+    </div>
+
+    <div class="container" style="padding-top: 0pt;"></div>
+        <center>
+        <div class="video-container">
+            <div class="video-compare-container" id="14a9b60b_bl_Div">
+                <video class="video" id="14a9b60b_bl_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/14a9b60b/1920x540/neurad_ours_back_left_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="14a9b60b_bl_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="14a9b60b_f_Div">
+                <video class="video" id="14a9b60b_f_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/14a9b60b/1920x540/neurad_ours_front_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="14a9b60b_f_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="14a9b60b_br_Div">
+                <video class="video" id="14a9b60b_br_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/14a9b60b/1920x540/neurad_ours_back_right_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="14a9b60b_br_Merge"></canvas>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <div class="video-compare-container" id="5fc54afc_bl_Div">
+                <video class="video" id="5fc54afc_bl_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/5fc54afc/1920x540/neurad_ours_back_left_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="5fc54afc_bl_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="5fc54afc_f_Div">
+                <video class="video" id="5fc54afc_f_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/5fc54afc/1920x540/neurad_ours_front_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="5fc54afc_f_Merge"></canvas>
+            </div>
+            <div class="video-compare-container" id="5fc54afc_br_Div">
+                <video class="video" id="5fc54afc_br_" loop="" playsinline="" autoplay="" muted="" src="media/lihi_gs/website/p702/5fc54afc/1920x540/neurad_ours_back_right_text.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+                <canvas height="340" width="600" class="videoMerge" id="5fc54afc_br_Merge"></canvas>
+            </div>
+        </div>
+        </center>
+    </div>
 
     <div class="container" style="padding-top: 0pt;">
         <h2 class="section_title">RGB Rendering Comparisons</h2>
     </div>
+
     <!-- Rendering 1 -->
     <div class="sliders-container" style="transform: scale(0.6); margin-top: -5vw;">
         <div class="slider__container" style="width: 50vw; max-width: 1920px; max-height: 1080px; height: 28.125vw">
