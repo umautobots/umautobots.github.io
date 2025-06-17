@@ -173,7 +173,7 @@
 <body style="background-color:#ffffff;">
     <!-- Author list -->
     <div class="section">
-        <h1 class="title" style="margin-top:0pt;margin-bottom:0pt;"><img src="images/radarsplat/radarsplat_icon.png" width="100"></h1>
+        <h1 class="title" style="margin-top:0pt;margin-bottom:-10pt;"><img src="images/radarsplat/radarsplat_icon.png" width="100"></h1>
         <h1 class="title" style="margin-top:0pt;margin-bottom:0pt;"> RadarSplat</h1>
 
         <h1 class="subtitle">Radar Gaussian Splatting for High-Fidelity Data Synthesis and 3D Reconstruction of Autonomous Driving Scenes</h1>
@@ -218,14 +218,14 @@
             </div>
         </div>
         <!-- Authors affiliation -->
-        <div class="affiliation" style="margin-bottom:5px;">
-            <p> University of Michigan, Ann Arbor </p>
-        </div>
-        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:0pt;margin-bottom:35px;max-width:400px;">
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:5pt;margin-bottom:35px;max-width:400px;">
             <!-- um icon -->
             <div class="col" style="width: 100%; line-height: 70pt; margin-bottom: 20px;">
                 <img src="./images/radarsplat/um_logo.png" height="70pt" />
             </div>
+        </div>
+        <div class="affiliation" style="margin-bottom:5px;">
+            <p> University of Michigan, Ann Arbor </p>
         </div>
 
         <!-- Links -->
@@ -257,7 +257,7 @@
     <div class="container" style="padding-top: 0pt;">
         <img src="images/radarsplat/teaser_full_width_v5.png" alt="Teaser Figure" style="width: 90%;">
         <p class="body">
-            RadarSplat enables radar 2D-to-3D scene reconstruction, image synthesis, and occupancy estimation. RadarSplat outperforms the state-of-the-art neural rendering method [6] both qualitatively and quantitatively while also enabling additional radar inverse rendering.
+            RadarSplat enables radar 2D-to-3D scene reconstruction, image synthesis, and occupancy estimation. RadarSplat outperforms the state-of-the-art neural rendering method both qualitatively and quantitatively while also enabling additional radar inverse rendering.
         </p>
     </div>
 
@@ -266,7 +266,8 @@
         <h2 class="section_title">Abstract</h2>
         <p class="body">
             <b>TL;DR: We introduce RadarSplat, a novel Radar Gaussian Splatting method for scene reconstruction, novel view synthesis, and inverse rendering.</b>
-                High-Fidelity 3D scene reconstruction plays a crucial role in autonomous driving by enabling novel data generation from existing datasets.
+
+            High-Fidelity 3D scene reconstruction plays a crucial role in autonomous driving by enabling novel data generation from existing datasets.
 This allows simulating safety-critical scenarios and augmenting training datasets without incurring further data collection costs.
 While recent advances in radiance fields have demonstrated promising results in 3D reconstruction and sensor data synthesis using cameras and LiDAR, their potential for radar remains largely unexplored.
 Radar is crucial for autonomous driving due to its robustness in adverse weather conditions like rain, fog, and snow, where optical sensors often struggle.
@@ -301,19 +302,19 @@ Compared to the state-of-the-art, RadarSplat achieves superior radar image synth
     </div>
 
     <!-- Results -->
-    <div class="container" style="padding-top: 0pt;">
-        <h2 class="section_title" style="padding-top: 0pt;margin-bottom:-240px;">Results</h2>
+    <div class="container" style="padding-top: 0pt;margin-bottom:0px;">
+        <h2 class="section_title">Results</h2>
     </div>
-    <div class="sliders-container" style="transform: scale(0.5);margin-bottom:-240px;">
+    <div class="sliders-container" style="transform: scale(0.5);margin-bottom:-10pt;">
         <img src="images/radarsplat/img_result_v3.png" alt="Rendering Figure" style="width: 49%;">
         <img src="images/radarsplat/occ_result_v3.png" alt="Occupancy Figure" style="width: 49%;">
     </div>
 
-    <!-- Inverse Rendering -->
-    <!-- <div class="container" style="padding-top: 0pt;margin-bottom:0pt;">
-        <h2 class="section_title">Radar Inverse Rendering</h2>
-        <img src="images/radarsplat/radar_inverse_rendering_v3.png" alt="Overview Figure" style="width: 60%;">
-    </div> -->
+    <!-- Extreme Weather and Lighting Conditions -->
+    <div class="container" style="padding-top: 0pt;margin-bottom:0pt;margin-top:-200px;">
+        <h2 class="section_title">Extreme Weather and Lighting Conditions</h2>
+        <img src="images/radarsplat/rebuttal_diff_scenes.png" alt="Extreme Conditions Figure" style="width: 60%;">
+    </div>
 
     <!-- Citation -->
     <div class="container" style="background-color:#f2f2f2">
