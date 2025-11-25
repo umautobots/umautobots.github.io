@@ -184,7 +184,7 @@
         <h1 class="subtitle">LiDAR-Supervised Gaussian Splatting for Highway Driving Scene
             Reconstruction</h1>
         <div class="publish">
-            <p></p>
+            <p>RA-L 2025</p>
         </div>
         <!-- Author name-->
         <div class="row">
@@ -609,18 +609,31 @@
         </p>
     </div>
 
+    <div class="container">
+        <h2 class="section_title">Additional Experiments on PandaSet and nuScenes Datasets</h2>
+        <div style="text-align: center;">
+            <img src="images/lihi_gs/lihigs_vs_splatad.png", width="50%">
+        </div>
+        <p class="body"> We additionally evaluate our method on the nuScenes and PandaSet datasets to demonstrate the generalization capability of LiHi-GS across different public datasets and to enable direct comparison with all baselines reported by SplatAD.
+            Similar to our findings on the Waymo dataset in the initial submission, the performance gains of LiHi-GS against existing works on urban scenes are less pronounced than gains observed on highway
+            scenes. This is likely because urban environments are less challenging and therefore do not fully expose the limitations of existing methods or highlight the advantages of our proposed components.
+            Comparision on highway dataset is reported in the main paper.
+        </p>
+    </div>
+
     <!-- Citation -->
     <div class="container" style="background-color:#f2f2f2">
         <h2 class="section_title">Citation</h2>
         <ul class="body" style="padding-left:50pt; font-size: 10pt; line-height: 15pt;">
             <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
                 <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
-                    @article{lihi_gs,<br>
-                        title={LiHi-GS: LiDAR-Supervised Gaussian Splatting for Highway Driving Scene Reconstruction},<br>
-                        author={Kung, Pou-Chun and Zhang, Xianling and Skinner, Katherine A and Jaipuria, Nikita},<br>
-                        journal={arXiv preprint arXiv:2412.15447},<br>
-                        year={2024}<br>
-                      }
+                    @article{kung2025lihi,
+                    title={Lihi-gs: Lidar-supervised gaussian splatting for highway driving scene reconstruction},
+                    author={Kung, Pou-Chun and Zhang, Xianling and Skinner, Katherine A and Jaipuria, Nikita},
+                    journal={IEEE Robotics and Automation Letters},
+                    year={2025},
+                    publisher={IEEE}
+                    }
             </div></li>
         </ul>
     </div>
