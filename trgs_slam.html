@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<!-- THE DOCTYPE tells the browser what type of webpage to render, the doctype used in this website is HTML5 which is the most recent HTML. -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>TRGS-SLAM: IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images</title>
+	<meta name="description" content="Thermal Inertial SLAM for Degraded Thermal Images.">
+    <style>
+        .title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:30pt;
+            margin-bottom:0pt;
+            margin-left: auto;
+            margin-right: auto;
+            color:#303030;
+            font-size:33pt;
+            font-weight:800;
+            letter-spacing:0pt;
+            max-width:1200px;
+        }
+        .subtitle{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:8pt;
+            margin-bottom:0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width:1100px;
+            color:#303030;
+            font-size:30pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .section_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            color:#181818;
+            font-size:25pt;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .subsection_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#504d4d;
+            font-size:20;
+            font-weight:500;
+            letter-spacing:0pt;
+        }
+        .body{
+	    font-family: Arial, Helvetica, sans-serif;
+            color:#000000;
+            padding-right:25pt;
+            padding-left:25pt;
+            padding-bottom:25pt;
+            text-align:justify;
+            font-size:12pt;
+            font-weight:300;
+            letter-spacing:0pt;
+            line-height: 20pt;
+        }
+        .col{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            float: left;
+            width: 16%;
+            color:#000000;
+            font-size:15pt;
+            font-weight:100;
+            letter-spacing:0pt;
+            height: 25pt;
+        }
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+            max-width:1200px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .affiliation{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:13pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .contribution{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:10pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .publish{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:20pt;
+            font-weight:600;
+            letter-spacing:0pt;
+        }
+        .container{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 5pt;
+            max-width:1200px
+        }
+    </style>
+</head>
+
+<body style="background-color:#ffffff;">
+    <div class="section">
+        <h1 class="title">TRGS-SLAM: IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images</h1>
+        <!-- Author name-->
+        <div class="row">
+            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 50%;">
+                <p>Spencer Carmichael<sup>1</sup></p>
+            </div>
+            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 50%;">
+                <p>Katherine A. Skinner<sup>1</sup></p>
+            </div>
+        </div>
+        <!-- Mailbox -->
+        <div class="row">
+            <div class="col", style="font-size:10pt; width: 50%;">
+                <p>specarmi@umich.edu</p>
+            </div>
+            <div class="col", style="font-size:10pt; width: 50%;">
+                <p>kskin@umich.edu</p>
+            </div>
+        </div>
+        <!-- Affiliation -->
+        <div class="contribution">
+            <p><sup>1</sup>Robotics Department, University of Michigan, Ann Arbor</p>
+        </div>
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
+            <div class="col" style="width: 50%; height: 60pt;">
+                <a href="https://umautobots.github.io/trgs_slam">
+                    <img src="./web_elements/paper.png" height="75pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 50%; height: 60pt;">
+                <a href="https://umautobots.github.io/trgs_slam">
+                    <img src="./web_elements/github.png" height="75pt"/>
+                </a>
+            </div>
+        </div>
+        <!-- Link name -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
+            <div class="col" style="width: 50%; font-size:12pt; font-weight: 600;">
+                <p>Preprint (Coming Soon)</p>
+            </div>
+            <div class="col" style="width: 50%; font-size:12pt; font-weight: 600;">
+                <p>Code (Coming Soon)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video -->
+    <!-- TODO: link to youtube video -->
+
+    <!-- Overview -->
+    <div class="container">
+        <h2 class="section_title">Abstract</h2>
+        <p class="body">Thermal cameras offer several advantages for simultaneous localization and mapping (SLAM) with mobile robots: they provide a passive, low-power solution to operating in darkness, are invariant to rapidly changing or high dynamic range illumination, and can see through fog, dust, and smoke. However, uncooled microbolometer thermal cameras, the only practical option in most robotics applications, suffer from significant motion blur, rolling shutter distortions, and fixed pattern noise. In this paper, we present TRGS-SLAM, a 3D Gaussian Splatting (3DGS) based thermal inertial SLAM system uniquely capable of handling these degradations. To overcome the challenges of thermal data, we introduce a model-aware 3DGS rendering method and several general innovations to 3DGS SLAM, including B-spline trajectory optimization with a two-stage IMU loss, view-diversity-based opacity resetting, and pose drift correction schemes. Our system demonstrates accurate tracking on real-world, fast motion, and high-noise thermal data that causes all other tested SLAM methods to fail. Moreover, through offline refinement of our SLAM results, we demonstrate thermal image restoration competitive with prior work that required ground truth poses.
+        </p>
+    </div>
+
+    <!-- Citation -->
+    <div class="container">
+        <h2 class="section_title">Citation</h2>
+        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
+            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
+                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
+                    Coming soon.
+            </div></li>
+        </ul>
+    </div>
+</body>
+</html>
