@@ -38,7 +38,7 @@
             padding-left:25pt;
             padding-right:25pt;
             color:#181818;
-            font-size:25pt;
+            font-size:20pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -49,8 +49,8 @@
             padding-left:25pt;
             padding-bottom:25pt;
             text-align:justify;
-            font-size:14pt;
-            font-weight:100;
+            font-size:12pt;
+            font-weight:300;
             letter-spacing:0pt;
             line-height: 20pt;
         }
@@ -78,6 +78,14 @@
             color:#000000;
             font-size:10pt;
             font-weight:100;
+            letter-spacing:0pt;
+        }
+        .publish{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:20pt;
+            font-weight:600;
             letter-spacing:0pt;
         }
         .container{
@@ -136,6 +144,9 @@
         .active, .dot:hover {
             background-color: #717171;
         }
+        .col b {
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -143,33 +154,36 @@
     <div class="section">
         <h1 class="title">TRNeRF</h1>
         <h1 class="subtitle">Restoring Blurry, Rolling Shutter, and Noisy Thermal Images with Neural Radiance Fields</h1>
+        <div class="publish" style="margin-top: -5pt;">
+            <p>WACV 2025</p>
+        </div>
         <!-- Author names first row -->
         <div class="row" style="max-width:800px;">
-            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt; width: 25%;">
                 <p>Spencer Carmichael<sup>1</sup></p>
             </div>
-            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt;width: 25%;">
                 <p>Manohar Bhat<sup>1</sup></p>
             </div>
-            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt;width: 25%;">
                 <p>Mani Ramanagopal<sup>3</sup></p>
             </div>
-            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt;width: 25%;">
                 <p>Austin Buchan<sup>1</sup></p>
             </div>
         </div>
         <!-- Mailbox first row -->
         <div class="row" style="max-width:800px;">
-            <div class="col", style="font-size:10pt; width: 25%;">
+            <div class="col" style="font-size:10pt; width: 25%;">
                 <p>specarmi@umich.edu</p>
             </div>
-            <div class="col", style="font-size:10pt; width: 25%;">
+            <div class="col" style="font-size:10pt; width: 25%;">
                 <p>manubhat@umich.edu</p>
             </div>
-            <div class="col", style="font-size:10pt; width: 25%;">
+            <div class="col" style="font-size:10pt; width: 25%;">
                 <p>manikans@andrew.cmu.edu</p>
             </div>
-            <div class="col", style="font-size:10pt; width: 25%;">
+            <div class="col" style="font-size:10pt; width: 25%;">
                 <p>adbuchan@umich.edu</p>
             </div>
         </div>
@@ -184,10 +198,10 @@
         </div>
         <!-- Mailbox second row -->
         <div class="row" style="max-width:800px;">
-            <div class="col", style="font-size:10pt; width: 50%;">
+            <div class="col" style="font-size:10pt; width: 50%;">
                 <p>ramv@umich.edu</p>
             </div>
-            <div class="col", style="font-size:10pt; width: 50%;">
+            <div class="col" style="font-size:10pt; width: 50%;">
                 <p>kskin@umich.edu</p>
             </div>
         </div>
@@ -203,75 +217,83 @@
         </div>
         <!-- Links -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
-            <div class="col" style="width: 33%; height: 27pt;">
-                <a href="https://umautobots.github.io/trnerf">
+            <div class="col" style="width: 25%; height: 27pt;">
+                <a href="https://ieeexplore.ieee.org/document/10943610">
                     <img src="./web_elements/paper.png" height="40pt"/>
                 </a>
             </div>
-            <div class="col" style="width: 33%; height: 27pt;">
-                <a href="https://umautobots.github.io/trnerf">
+            <div class="col" style="width: 25%; height: 27pt;">
+                <a href="https://openaccess.thecvf.com/content/WACV2025/html/Carmichael_TRNeRF_Restoring_Blurry_Rolling_Shutter_and_Noisy_Thermal_Images_with_WACV_2025_paper.html">
+                    <img src="./web_elements/paper.png" height="40pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 25%; height: 27pt;">
+                <a href="https://github.com/umautobots/trnerf">
                     <img src="./web_elements/github.png" height="40pt"/>
                 </a>
             </div>
-            <div class="col" style="width: 33%; height: 27pt;">
-                <a href="https://umautobots.github.io/trnerf">
+            <div class="col" style="width: 25%; height: 27pt;">
+                <a href="https://deepblue.lib.umich.edu/data/collections/m039k608j">
                     <img src="./web_elements/database.png" height="40pt"/>
                 </a>
             </div>
         </div>
         <!-- Link names -->
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
-            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
-                <p>Preprint (coming soon)</p>
+            <div class="col" style="width: 25%; font-size:12pt; font-weight: 600;">
+                <p>Paper (IEEE)</p>
             </div>
-            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
-                <p>Code (coming soon)</p>
+            <div class="col" style="width: 25%; font-size:12pt; font-weight: 600;">
+                <p>Paper (CVF, open access)</p>
             </div>
-            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
-                <p>Dataset (coming soon)</p>
+            <div class="col" style="width: 25%; font-size:12pt; font-weight: 600;">
+                <p>Code</p>
+            </div>
+            <div class="col" style="width: 25%; font-size:12pt; font-weight: 600;">
+                <p>Dataset</p>
             </div>
         </div>
     </div>
     <div class="container" style="margin-top: 0pt; margin-bottom: -30pt;">
-        <h2 class="section_title">Example Results</h2>
+        <h2 class="section_title">Restoration Examples</h2>
     </div>
     <!-- Example results slideshow -->
     <div class="slideshow-container">
         <div class="mySlides">
-            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+            <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
                 <p>(1/4) <b>Fast</b> camera movement (playback 1/4x speed) <b>Indoor</b> scene</p>
             </div>
-            <video width="100%" id="fast_indoor" autoplay muted loop controls>
-                <source src="media/trnerf/fast_indoor_raw_vs_trnerf_quarter_speed_first_15_sec.mp4">
+            <video width="100%" id="fast_indoor" autoplay muted loop controls playsinline>
+                <source src="media/trnerf/fast_indoor_raw_vs_trnerf_quarter_speed_first_7_5_sec.mp4">
             </video>
             <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
             <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
         </div>
         <div class="mySlides">
-            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+            <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
                 <p>(2/4) <b>Fast</b> camera movement (playback 1/4x speed) <b>Outdoor</b> scene</p>
             </div>
-            <video width="100%" id="fast_outdoor" autoplay muted loop controls>
-                <source src="media/trnerf/fast_outdoor_raw_vs_trnerf_quarter_speed_first_15_sec.mp4">
+            <video width="100%" id="fast_outdoor" autoplay muted loop controls playsinline>
+                <source src="media/trnerf/fast_outdoor_raw_vs_trnerf_quarter_speed_first_7_5_sec.mp4">
             </video>
             <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
             <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
         </div>
         <div class="mySlides">
-            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+            <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
                 <p>(3/4) <b>Medium</b> camera movement (playback 1x speed) <b>Indoor</b> scene</p>
             </div>
-            <video width="100%" id="medium_indoor" autoplay muted loop controls>
+            <video width="100%" id="medium_indoor" autoplay muted loop controls playsinline>
                 <source src="media/trnerf/medium_indoor_raw_vs_trnerf_first_15_sec.mp4">
             </video>
             <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
             <div class="caption" style="top: 17%; left: 52%"> TRNeRF Restored </div>
         </div>
         <div class="mySlides">
-            <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+            <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
                 <p>(4/4) <b>Medium</b> camera movement (playback 1x speed) <b>Outdoor</b> scene</p>
             </div>
-            <video width="100%" id="medium_outdoor" autoplay muted loop controls>
+            <video width="100%" id="medium_outdoor" autoplay muted loop controls playsinline>
                 <source src="media/trnerf/medium_outdoor_raw_vs_trnerf_first_15_sec.mp4">
             </video>
             <div class="caption" style="top: 17%; left: 2%"> Raw (Undistorted) </div>
@@ -318,7 +340,7 @@
             restored images.
         </p>
         <div style="text-align: center;">
-            <img src="images/trnerf/method.png", width="94%">
+            <img src="images/trnerf/method.png" width="94%">
         </div>
     </div>
     <!-- Dataset -->
@@ -332,7 +354,7 @@
         increasingly aggressive six degree-of-freedom camera motion.
         </p>
         <div style="text-align: center;">
-            <img src="images/trnerf/rig_fig_website.png", width="94%">
+            <img src="images/trnerf/rig_fig_website.png" width="94%">
         </div>
     </div>
     <!-- Evaluation Methods -->
@@ -348,23 +370,41 @@
         through a two point non-uniformity correction). We compute the LPIPS metric between the restored and pseudo
         ground truth images.
         </p>
-        <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: -35pt">
+        <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: -35pt">
             <p>Detection Based Evaluation Method</p>
         </div>
-        <video style="margin-left:25pt;" width="94%" id="detection" autoplay muted loop controls>
-            <source src="media/trnerf/medium_indoor_detection_sixth_speed_first_15_sec.mp4">
+        <video style="margin-left:25pt;" width="94%" id="detection" autoplay muted loop controls playsinline>
+            <source src="media/trnerf/medium_indoor_detection_sixth_speed_first_7_5_sec.mp4">
         </video>
         <div style="text-align: center;">
-            <img src="images/trnerf/detection_legend.png", width="350pt">
+            <img src="images/trnerf/detection_legend.png" width="350pt">
         </div>
-        <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt;">
+        <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt;">
             <p>Pseudo Ground Truth Based Evaluation Method</p>
         </div>
-        <video style="margin-left:25pt;" width="94%" id="lpips" autoplay muted loop controls>
+        <video style="margin-left:25pt;" width="94%" id="lpips" autoplay muted loop controls playsinline>
             <source src="media/trnerf/fast_indoor_lpips_fifteenth_speed.mp4">
         </video>
     </div>
-    <!-- Abalation Study -->
+    <!-- Comparisons -->
+    <div class="container">
+        <h2 class="section_title">Comparisons</h2>
+        <p class="body"> We compare against state-of-the-art NeRF- and 3DGS-based restoration baselines and Instant-NGP (which we modify in our method). The qualitative and quantitative results are shown below, alongside the results of applying our evaluation methods to the raw images (after lens-undistortion). The detection percentage results with the raw images confirm that the slow sequence images are not substantially degraded, especially in the high thermal contrast outdoor scene where the FPN is less significant. Our method significantly outperforms the baselines on the medium and fast sequences (with the exception of the detection percentage metric on the fast sequences, which may stem from the reflective board being particularly difficult to restore).
+        </p>
+        <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 30pt; margin-top: -35pt">
+            <p>Qualitative results</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="images/trnerf/comparison_qualitative.png" width="80%">
+        </div>
+        <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 30pt;">
+            <p>Quantitative Results</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="images/trnerf/comparison_quantitative.png" width="80%">
+        </div>
+    </div>
+    <!-- Ablation Study -->
     <div class="container">
         <h2 class="section_title">Ablation Study</h2>
         <p class="body"> Our ablation study demonstrates that it is necessary to account for
@@ -372,25 +412,24 @@
         performance. In particular, onboard image filters, which were enabled by default in our thermal cameras, can
         produce significant artifacts in the restored images.
         </p>
-        <video style="margin-left:25pt;" width="94%" id="ablations" autoplay muted loop controls>
+        <video style="margin-left:25pt;" width="94%" id="ablations" autoplay muted loop controls playsinline>
             <source src="media/trnerf/fast_indoor_ablation_quarter_speed.mp4">
         </video>
     </div>
     <!-- Citation -->
-    <div class="container">
+    <div class="container" style="margin-bottom: 40pt;">
         <h2 class="section_title">Citation</h2>
-        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
-            <ul style="padding-left:0"><div style="background-color:#e6e6e6; padding-bottom: 10pt; padding-top: 10pt">
-                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
-                    @misc{trnerf2024, <br>
-                        title={TRNeRF: Restoring Blurry, Rolling Shutter, and Noisy Thermal Images with Neural Radiance Fields}, <br>
-                        author={Spencer Carmichael and Manohar Bhat and Mani Ramanagopal and Austin Buchan and Ram Vasudevan and Katherine A. Skinner}, <br>
-                        year={2024}, <br>
-                        eprint={TODO:PLACEHOLDER}, <br>
-                        archivePrefix={arXiv}, <br>
-                        primaryClass={cs.CV}}
-            </div></li>
-        </ul>
+        <div style="background-color:#e6e6e6; margin-left: 25pt; margin-right: 25pt; padding: 10pt 10pt;">
+            <p style="font-family: monospace; font-size: 10pt; line-height: 1.2rem; text-indent: -3rem; margin-left: 4rem; margin-bottom: 0;">
+                @InProceedings{trnerf_2025, <br>
+                    author    = {Carmichael, Spencer and Bhat, Manohar and Ramanagopal, Mani and Buchan, Austin and Vasudevan, Ram and Skinner, Katherine A.}, <br>
+                    title     = {{TRNeRF}: Restoring Blurry, Rolling Shutter, and Noisy Thermal Images with Neural Radiance Fields}, <br>
+                    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)}, <br>
+                    month     = {February}, <br>
+                    year      = {2025}, <br>
+                    pages     = {7969-7979}}
+            </p>
+        </div>
     </div>
 
     <script>
