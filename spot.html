@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-<!-- THE DOCTYPE tells the browser what type of webpage to render, the doctype used in this website is HTML5 which is the most recent HTML. -->
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
@@ -28,7 +27,7 @@
             margin-right: auto;
             max-width:1100px;
             color:#303030;
-            font-size:30pt;
+            font-size:25pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -38,7 +37,7 @@
             padding-left:25pt;
             padding-right:25pt;
             color:#181818;
-            font-size:25pt;
+            font-size:20pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -90,7 +89,7 @@
 	    font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:#000000;
-            font-size:13pt;
+            font-size:10pt;
             font-weight:100;
             letter-spacing:0pt;
         }
@@ -121,24 +120,28 @@
 
 <body style="background-color:#ffffff;">
     <div class="section">
-        <h1 class="title">SPOT: Point Cloud Based Stereo Visual Place Recognition for Similar and Opposing Viewpoints</h1>
+        <h1 class="title">SPOT</h1>
+        <h1 class="subtitle">Point Cloud Based Stereo Visual Place Recognition for Similar and Opposing Viewpoints</h1>
+        <div class="publish" style="margin-top: -5pt;">
+            <p>ICRA 2024</p>
+        </div>
         <!-- Author name-->
-        <div class="row">
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 25%;">
+        <div class="row" style="max-width:800px;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt; width: 25%;">
                 <p>Spencer Carmichael<sup>1</sup></p>
             </div>
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt; width: 25%;">
                 <p>Rahul Agrawal<sup>1*</sup></p>
             </div>
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt; width: 25%;">
                 <p>Ram Vasudevan<sup>1,2</sup></p>
             </div>
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 25%;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -15pt; width: 25%;">
                 <p>Katherine A. Skinner<sup>1</sup></p>
             </div>
         </div>
         <!-- Mailbox -->
-        <div class="row">
+        <div class="row" style="max-width:800px;">
             <div class="col", style="font-size:10pt; width: 25%;">
                 <p>specarmi@umich.edu</p>
             </div>
@@ -153,72 +156,151 @@
             </div>
         </div>
         <!-- Affiliation -->
-        <div class="contribution">
+        <div class="affiliation" style="margin-bottom: -10pt;">
             <p><sup>1</sup>Robotics Department, University of Michigan, Ann Arbor</p>
         </div>
-        <div class="contribution">
+        <div class="affiliation" style="margin-bottom: -10pt;">
             <p><sup>2</sup>Department of Mechanical Engineering, University of Michigan, Ann Arbor</p>
         </div>
-        <div class="contribution">
-            <p><sup>*</sup>Rahul Agrawal contributed to this work while employed at University of Michigan.</p>
+        <div class="affiliation">
+            <p><sup>*</sup>Rahul Agrawal contributed to this work while employed at the University of Michigan.</p>
         </div>
         <!-- Links -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
-            <div class="col" style="width: 33%; height: 60pt;">
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://ieeexplore.ieee.org/document/10610293">
+                    <img src="./web_elements/paper.png" height="40pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 27pt;">
                 <a href="https://arxiv.org/abs/2404.12339">
-                    <img src="./web_elements/paper.png" height="75pt"/>
+                    <img src="./web_elements/paper.png" height="40pt"/>
                 </a>
             </div>
-            <div class="col" style="width: 33%; height: 60pt;">
-                <a href="https://github.com/umautobots/SPOT">
-                    <img src="./web_elements/github.png" height="75pt"/>
-                </a>
-            </div>
-            <div class="col" style="width: 33%; height: 60pt;">
-                <a href="https://umautobots.github.io/nsavp">
-                    <img src="./web_elements/database.png" height="75pt"/>
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://github.com/umautobots/spot">
+                    <img src="./web_elements/github.png" height="40pt"/>
                 </a>
             </div>
         </div>
         <!-- Link name -->
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
             <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
-                <p>Preprint (will be updated with appendix soon)</p>
+                <p>Paper (IEEE)</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Preprint with Appendix (arXiv)</p>
             </div>
             <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
                 <p>Code</p>
             </div>
-            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
-                <p>NSAVP Dataset</p>
-            </div>
         </div>
     </div>
 
-    <!-- Video -->
-    <!-- TODO: link to youtube video -->
+    <!-- Example Result -->
+    <div class="container" style="margin-top: 0pt; margin-bottom: -30pt;">
+        <h2 class="section_title">Place Recognition Example:</h2>
+    </div>
+    <div class="col", style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt; margin-top: 10pt;">
+        <p>Queries: forward direction at sunset, References: reverse direction at noon</p>
+    </div>
+    <div class="container" style="padding-top: 25pt;">
+        <center>
+        <video width="100%" id="nsavp_teaser" autoplay muted loop controls playsinline>
+            <source src="media/spot/spot_sunset_example.mp4">
+        </video>
+        </center>
+    </div>
 
-    <!-- Overview -->
+    <!-- Abstract -->
     <div class="container">
         <h2 class="section_title">Abstract</h2>
-        <p class="body">Recognizing places from an opposing viewpoint during a return trip is a common experience for human drivers. However, the analogous robotics capability, visual place recognition (VPR) with limited field of view cameras under 180 degree rotations, has proven to be challenging to achieve. To address this problem, this paper presents Same Place Opposing Trajectory (SPOT), a technique for opposing viewpoint VPR that relies exclusively on structure estimated through stereo visual odometry (VO). The method extends recent advances in lidar descriptors and utilizes a novel double (similar and opposing) distance matrix sequence matching method. We evaluate SPOT on a publicly available dataset with 6.7-7.6 km routes driven in similar and opposing directions under various lighting conditions. The proposed algorithm demonstrates remarkable improvement over the state-of-the-art, achieving up to 91.7% recall at 100% precision in opposing viewpoint cases, while requiring less storage than all baselines tested and running faster than all but one. Moreover, the proposed method assumes no <i>a priori</i> knowledge of whether the viewpoint is similar or opposing, and also demonstrates competitive performance in similar viewpoint cases.
+        <p class="body">Recognizing places from an opposing viewpoint during a return trip is a common experience for
+            human drivers. However, the analogous robotics capability, visual place recognition (VPR) with limited field
+            of view cameras under 180 degree rotations, has proven to be challenging to achieve. To address this
+            problem, this paper presents Same Place Opposing Trajectory (SPOT), a technique for opposing viewpoint VPR
+            that relies exclusively on structure estimated through stereo visual odometry (VO). The method extends
+            recent advances in lidar descriptors and utilizes a novel double (similar and opposing) distance matrix
+            sequence matching method. We evaluate SPOT on a publicly available dataset with 6.7-7.6 km routes driven in
+            similar and opposing directions under various lighting conditions. The proposed algorithm demonstrates
+            remarkable improvement over the state-of-the-art, achieving up to 91.7% recall at 100% precision in
+            opposing viewpoint cases, while requiring less storage than all baselines tested and running faster than all
+            but one. Moreover, the proposed method assumes no <i>a priori</i> knowledge of whether the viewpoint is
+            similar or opposing, and also demonstrates competitive performance in similar viewpoint cases.
         </p>
     </div>
 
-    <!-- Citation -->
+    <!-- Visual Offset -->
     <div class="container">
+        <h2 class="section_title">Background: The Visual Offset</h2>
+        <p class="body"> The goal of place recognition is typically to match a query image with the reference image
+            captured at the physically closest location. This is especially challenging in opposing viewpoint place
+            recognition because the physically closest reference may share no visual information with the query while
+            the reference with the greatest visual overlap is likely separated by a significant distance, called the
+            <i>visual offset</i>. This offset may be difficult to overcome in subsequent relative pose estimation
+            (which is necessary for loop closure in SLAM). SPOT avoids the visual offset problem by forming place
+            descriptors that capture the structure <i>surrounding</i> the camera, rather than being limited to the
+            field-of-view (FOV) of a single image.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/spot/visual_offset.png" width="60%">
+        </div>
+    </div>
+
+    <!-- System Overview -->
+    <div class="container">
+        <h2 class="section_title">System Overview</h2>
+        <p class="body"> The SPOT system takes stereo images as input and outputs place recognition matches at selected
+            keyframes. The entry point of the system is a stereo visual odometry algorithm, SO-DSO, which produces
+            estimated poses and sparse depth images with absolute scale. These estimates are accumulated to form point
+            clouds at selected keyframe poses. Next, Cart Context query descriptors are formed from the point clouds,
+            providing coarse, bird's-eye view representations of the structure surrounding the keyframe poses. The query
+            descriptors are flipped about both axes to yield second versions that are similar to that which would have
+            been produced from the opposing view. Distances are computed between both versions of each query and all
+            references, using a variable offset technique that lends robustness to lateral shifts. The distances from
+            the two versions of each query contribute to separate distance matrices that individually capture similar
+            and opposing viewpoints. Sequence matching is performed with each distance matrix and the final reference
+            match is selected from the results.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/spot/spot_overview.png" width="95%">
+        </div>
+    </div>
+
+    <!-- Selected Results -->
+    <div class="container">
+        <h2 class="section_title">Selected Results</h2>
+        <p class="body"> We tested SPOT on the NSAVP dataset, which includes two routes driven in both the forward and
+            reverse directions. The sequences capture a variety of lighting conditions, scene types
+            (urban vs. suburban), traffic conditions, road widths (two vs. four lanes), and lateral gaps between
+            opposing lanes (e.g., medians and turns lanes). We form reference descriptor databases for each route from
+            sequences collected at noon (using 6.7 and 7.6 km subsets of the R0 and R1 routes respectively), and test
+            with queries from all other sequences. The results from the R0 route are shown below. The plots are
+            organized into similar and opposing viewpoints and the plot titles denote the time of day the queries were
+            collected. SPOT outperforms the baselines in opposing viewpoint cases and avoids the visual offset,
+            performing well even with a 15 m localization radius. SPOT is also competitive in similar viewpoint cases
+            and is robust to a variety of lighting conditions, except poorly lit areas at night where the surrounding
+            structure is difficult to observe.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/spot/selected_results.png" width="65%">
+        </div>
+    </div>
+
+    <!-- Citation -->
+    <div class="container" style="margin-bottom: 40pt;">
         <h2 class="section_title">Citation</h2>
-        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
-            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
-                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
-                    @misc{carmichael2024spot, <br>
-                        title={SPOT: Point Cloud Based Stereo Visual Place Recognition for Similar and Opposing Viewpoints}, <br>
-                        author={Spencer Carmichael and Rahul Agrawal and Ram Vasudevan and Katherine A. Skinner}, <br>
-                        year={2024}, <br>
-                        eprint={2404.12339}, <br>
-                        archivePrefix={arXiv}, <br>
-                        primaryClass={cs.RO}}
-            </div></li>
-        </ul>
+        <div style="background-color:#e6e6e6; margin-left: 25pt; margin-right: 25pt; padding: 10pt 10pt;">
+            <p style="font-family: monospace; font-size: 10pt; line-height: 1.2rem; text-indent: -3rem; margin-left: 4rem; margin-bottom: 0;">
+                @inproceedings{spot_vpr_2024, <br>
+                    author={Carmichael, Spencer and Agrawal, Rahul and Vasudevan, Ram and Skinner, Katherine A.}, <br>
+                    booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)}, <br>
+                    title={{SPOT}: Point Cloud Based Stereo Visual Place Recognition for Similar and Opposing Viewpoints}, <br>
+                    month={May}, <br>
+                    year={2024}, <br>
+                    pages={1752-1758}}
+            </p>
+        </div>
     </div>
 </body>
 </html>
