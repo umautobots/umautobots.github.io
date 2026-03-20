@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
-<!-- THE DOCTYPE tells the browser what type of webpage to render, the doctype used in this website is HTML5 which is the most recent HTML. -->
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<title>TRGS-SLAM: IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images</title>
-	<meta name="description" content="Thermal Inertial SLAM for Degraded Thermal Images.">
+	<meta name="description" content="IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images">
     <style>
         .title{
 	    font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +27,7 @@
             margin-right: auto;
             max-width:1100px;
             color:#303030;
-            font-size:30pt;
+            font-size:25pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -38,7 +37,7 @@
             padding-left:25pt;
             padding-right:25pt;
             color:#181818;
-            font-size:25pt;
+            font-size:20pt;
             font-weight:500;
             letter-spacing:0pt;
         }
@@ -90,7 +89,7 @@
 	    font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:#000000;
-            font-size:13pt;
+            font-size:10pt;
             font-weight:100;
             letter-spacing:0pt;
         }
@@ -121,18 +120,19 @@
 
 <body style="background-color:#ffffff;">
     <div class="section">
-        <h1 class="title">TRGS-SLAM: IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images</h1>
+        <h1 class="title">TRGS-SLAM</h1>
+        <h1 class="subtitle">IMU-Aided Gaussian Splatting SLAM for Blurry, Rolling Shutter, and Noisy Thermal Images</h1>
         <!-- Author name-->
-        <div class="row">
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 50%;">
-                <p>Spencer Carmichael<sup>1</sup></p>
+        <div class="row" style="max-width:800px;">
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -5pt; width: 50%;">
+                <p>Spencer Carmichael</p>
             </div>
-            <div class="col" style="font-weight: 200; height: auto; margin-bottom: -22pt; width: 50%;">
-                <p>Katherine A. Skinner<sup>1</sup></p>
+            <div class="col" style="font-size:12pt; font-weight: 200; height: auto; margin-bottom: -20pt; margin-top: -5pt; width: 50%;">
+                <p>Katherine A. Skinner</p>
             </div>
         </div>
         <!-- Mailbox -->
-        <div class="row">
+        <div class="row" style="max-width:800px;">
             <div class="col", style="font-size:10pt; width: 50%;">
                 <p>specarmi@umich.edu</p>
             </div>
@@ -141,52 +141,130 @@
             </div>
         </div>
         <!-- Affiliation -->
-        <div class="contribution">
-            <p><sup>1</sup>Robotics Department, University of Michigan, Ann Arbor</p>
+        <div class="affiliation" style="margin-bottom: -2pt;">
+            <p>Robotics Department, University of Michigan, Ann Arbor</p>
         </div>
         <!-- Links -->
         <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:800px;">
-            <div class="col" style="width: 50%; height: 60pt;">
+            <div class="col" style="width: 33%; height: 27pt;">
                 <a href="https://umautobots.github.io/trgs_slam">
-                    <img src="./web_elements/paper.png" height="75pt"/>
+                    <img src="./web_elements/paper.png" height="40pt"/>
                 </a>
             </div>
-            <div class="col" style="width: 50%; height: 60pt;">
-                <a href="https://umautobots.github.io/trgs_slam">
-                    <img src="./web_elements/github.png" height="75pt"/>
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://github.com/umautobots/trgs_slam">
+                    <img src="./web_elements/github.png" height="40pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; height: 27pt;">
+                <a href="https://github.com/umautobots/lie_spline_torch">
+                    <img src="./web_elements/github.png" height="40pt"/>
                 </a>
             </div>
         </div>
-        <!-- Link name -->
+        <!-- Link names -->
         <div class="row" style="margin-left:auto; margin-right:auto; max-width:800px; line-height: 10pt;">
-            <div class="col" style="width: 50%; font-size:12pt; font-weight: 600;">
-                <p>Preprint (Coming Soon)</p>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>Paper (arXiv)</p>
             </div>
-            <div class="col" style="width: 50%; font-size:12pt; font-weight: 600;">
-                <p>Code (Coming Soon)</p>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>SLAM Code</p>
+            </div>
+            <div class="col" style="width: 33%; font-size:12pt; font-weight: 600;">
+                <p>B-Spline Code</p>
             </div>
         </div>
     </div>
 
-    <!-- Video -->
-    <!-- TODO: link to youtube video -->
+    <!-- Example Result -->
+    <div class="container" style="margin-top: 0pt; margin-bottom: -30pt;">
+        <h2 class="section_title">Example: <b>Fast</b> camera motion (severe blur/shutter artifacts) <b>Indoor</b> scene (high noise)</h2>
+    </div>
+    <div class="container" style="padding-top: 25pt;">
+        <center>
+        <video width="100%" id="trgs_slam_example" autoplay muted loop controls playsinline>
+            <source src="media/trgs_slam/fast_indoor_annotated_example.mp4">
+        </video>
+        <img src="images/trgs_slam/video_key.png" style="margin-top: 10pt; margin-bottom: 0pt;" width="70%">
+        </center>
+    </div>
 
-    <!-- Overview -->
+    <!-- Abstract -->
     <div class="container">
         <h2 class="section_title">Abstract</h2>
-        <p class="body">Thermal cameras offer several advantages for simultaneous localization and mapping (SLAM) with mobile robots: they provide a passive, low-power solution to operating in darkness, are invariant to rapidly changing or high dynamic range illumination, and can see through fog, dust, and smoke. However, uncooled microbolometer thermal cameras, the only practical option in most robotics applications, suffer from significant motion blur, rolling shutter distortions, and fixed pattern noise. In this paper, we present TRGS-SLAM, a 3D Gaussian Splatting (3DGS) based thermal inertial SLAM system uniquely capable of handling these degradations. To overcome the challenges of thermal data, we introduce a model-aware 3DGS rendering method and several general innovations to 3DGS SLAM, including B-spline trajectory optimization with a two-stage IMU loss, view-diversity-based opacity resetting, and pose drift correction schemes. Our system demonstrates accurate tracking on real-world, fast motion, and high-noise thermal data that causes all other tested SLAM methods to fail. Moreover, through offline refinement of our SLAM results, we demonstrate thermal image restoration competitive with prior work that required ground truth poses.
+        <p class="body">Thermal cameras offer several advantages for simultaneous localization and mapping (SLAM) with
+            mobile robots: they provide a passive, low-power solution to operating in darkness, are invariant to rapidly
+            changing or high dynamic range illumination, and can see through fog, dust, and smoke. However, uncooled
+            microbolometer thermal cameras, the only practical option in most robotics applications, suffer from
+            significant motion blur, rolling shutter distortions, and fixed pattern noise. In this paper, we present
+            TRGS-SLAM, a 3D Gaussian Splatting (3DGS) based thermal inertial SLAM system uniquely capable of handling
+            these degradations. To overcome the challenges of thermal data, we introduce a model-aware 3DGS rendering
+            method and several general innovations to 3DGS SLAM, including B-spline trajectory optimization with a
+            two-stage IMU loss, view-diversity-based opacity resetting, and pose drift correction schemes. Our system
+            demonstrates accurate tracking on real-world, fast motion, and high-noise thermal data that causes all other
+            tested SLAM methods to fail. Moreover, through offline refinement of our SLAM results, we demonstrate
+            thermal image restoration competitive with prior work that required ground truth poses.
         </p>
     </div>
 
-    <!-- Citation -->
+    <!-- Microbolometer-Aware Rendering -->
     <div class="container">
+        <h2 class="section_title">Microbolometer-Aware Rendering</h2>
+        <p class="body"> Our prior work, TRNeRF, restored degraded thermal images by incorporating a microbolometer image formation model into the NeRF rendering pipeline. This project translates that idea to 3DGS, extends the fixed pattern noise (FPN) parameterization, and integrates it into a SLAM system. To model blur and rolling shutter, we rasterize multiple sharp images and blend them together using precomputed pixel-wise weights (derived as a discrete integral accounting for lens distortion, rolling shutter, and the thermal time constant). The blended result is then combined with an estimate of FPN (modeled as a time-varying spline) to obtain the final render used in the image loss.
+        </p>
+        <div style="text-align: center;padding-right:25pt;padding-left:25pt;">
+            <img src="images/trgs_slam/microbolometer_aware_rendering.png" width="100%">
+        </div>
+    </div>
+
+    <!-- B-Spline Trajectory and IMU Loss -->
+    <div class="container">
+        <h2 class="section_title">B-Spline Trajectory and IMU Loss</h2>
+        <p class="body"> We use a continuous-time trajectory representation formed from two uniform B-splines (one for positions in R<sup>3</sup> and another for rotations in SO(3)). With this continuous trajectory we can rasterize images at arbitrary times and compute a loss directly against high-rate IMU data (without preintegration). We utilize gyroscope data immediately (which we find to be essential in the early mapping stages), and include accelerometer data after IMU initialization. We provide a standalone package for R<sup>d</sup> and SO(3) B-spline optimization in PyTorch (link above).
+        </p>
+        <div style="text-align: center;">
+            <img src="images/trgs_slam/b_spline_and_imu_loss.png" width="60%">
+        </div>
+    </div>
+
+    <!-- Novel Schemes for Mapping and Opacity Resetting -->
+    <div class="container">
+        <h2 class="section_title">Novel Schemes for Mapping and Opacity Resetting</h2>
+        <p class="body"> We develop a novel 3DGS mapping scheme that corrects drift rather than overwriting previously observed portions of the map. Additionally, we introduce a scheme to limit opacity resetting to Gaussians with poor view-diversity. This tends to targets poorly constrained Gaussians at the edges of the scene, as shown below. Eliminating these Gaussians reduces the map size and prevents them from harming tracking.
+        </p>
+        <div style="text-align: center;">
+            <img src="images/trgs_slam/view_diversity.png" width="90%">
+        </div>
+    </div>
+
+    <!-- SLAM Results-->
+    <div class="container">
+        <h2 class="section_title">SLAM Results</h2>
+        <p class="body"> We test on the dataset we introduced in TRNeRF. This dataset includes six sequences combining three camera speeds (slow, medium, and fast) with two scenes (indoor and outdoor). These combinations allow for an isolation of variables: blur and rolling shutter are insignificant in the slow sequences, and FPN is most prominent in the low contrast indoor scene. All tested methods succeed on the slow outdoor sequence, where the degradations we target are nearly absent. Several methods succeed on the moderately degraded sequences (medium outdoor and slow indoor), but TRGS-SLAM is the only method capable of accurate tracking in the most challenging sequences (fast outdoor, medium indoor, and fast indoor).
+        </p>
+        <div class="col" style="font-size:18pt; font-weight: 100; width: 100%; margin-bottom: 20pt;margin-top: -30pt">
+            <p>RMSE ATE in cm on the TRNeRF dataset</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="images/trgs_slam/slam_results.png" width="80%">
+        </div>
+    </div>
+
+    <!-- Restoration Results -->
+    <div class="container">
+        <h2 class="section_title">Restoration Results</h2>
+        <p class="body"> We also show that offline refinement of the TRGS-SLAM results yields restoration performance comparable to TRNeRF, despite the latter relying on ground truth poses.
+        </p>
+        <div style="text-align: center;padding-right:25pt;padding-left:25pt;margin-top: -15pt">
+            <img src="images/trgs_slam/restoration_qualitative.png" width="100%">
+        </div>
+    </div>
+
+    <!-- Citation -->
+    <div class="container" style="margin-bottom: 40pt;">
         <h2 class="section_title">Citation</h2>
-        <ul class="body" style="font-size: 10pt; line-height: 15pt;">
-            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
-                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">
-                    Coming soon.
-            </div></li>
-        </ul>
+        <p class="body"> TODO
+        </p>
     </div>
 </body>
 </html>
